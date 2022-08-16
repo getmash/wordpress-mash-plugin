@@ -1,0 +1,31 @@
+.dashicons-mash {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 42px auto;
+  background-image: url("../images/mash-logo.svg");
+}
+
+.form-content {
+  background-color: #fff;
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.form-field {
+  align-items: center;
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+
+.form-field-label {
+  font-weight: bold;
+  flex: 1 1 25%;
+}
+
+.form-field-input {
+  flex: 2 1 75%;
+}
+
+.form-field-input > input {
+  width: 100% !important;
+} 
