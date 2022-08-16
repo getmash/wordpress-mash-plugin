@@ -7,7 +7,7 @@ Tested up to: 6.0.1
 Stable tag: 1.0.0
 Requires PHP: 7.5.3
 License: GPLv2 or later
-icense URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
   
 Setup and configure Mash Wallet on your wordpress site.
   
