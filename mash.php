@@ -104,6 +104,9 @@ if (!class_exists("MASH_WALLET")) :
       );
     }
 
+    /**
+     * Handles settings up the Mash settings pages and core variables
+     */
     public static function mash_settings_page()
     {
 
@@ -123,7 +126,10 @@ if (!class_exists("MASH_WALLET")) :
 
       include_once plugin_dir_path( __FILE__ ) . 'includes/mash_settings.php';
     }
-    
+
+    /**
+     * Loads assets needed for the mash settings page
+     */
     public static function mash_enqueue_assets( $hook ) {
       wp_register_style('mash_general_admin_assets', plugins_url('css/style-general-admin.css', __FILE__));
       wp_enqueue_style('mash_general_admin_assets');
@@ -135,6 +141,9 @@ if (!class_exists("MASH_WALLET")) :
       wp_enqueue_script('selectize-js');
     }
 
+    /**
+     * Handles save request from form
+     */
     public static function mash_request_handler()
     {
       current_user_can('administrator');
@@ -183,6 +192,9 @@ if (!class_exists("MASH_WALLET")) :
       self::mash_redirect(admin_url('admin.php?page=mash-wallet-settings'));
     }
 
+    /**
+     * Handles redirecting the user based on the url
+     */
     public static function mash_redirect( $url = '' )
     {
       // Register the script
@@ -240,6 +252,10 @@ if (!class_exists("MASH_WALLET")) :
       return array();
     }
 
+    /**
+     * Loads the mash wallet on the correct pages based on configuration
+     * This is triggered by the wordpress "head" hook
+     */
     public static function mash_load_wallet()
     {
       global $wpdb;
@@ -325,8 +341,10 @@ if (!class_exists("MASH_WALLET")) :
       return $output;
     }
 
+    /**
+     * Check if array is empty
+     */
     public static function mash_not_empty( $arr ) {
-      
       if (empty($arr) ) {
           return false;
       }
