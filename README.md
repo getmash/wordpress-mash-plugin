@@ -13,3 +13,7 @@ To setup a earner account, please visit the [Earner Dashboard](https://wallet.ge
 - Add Mash Wallet to to your site without writing and any
 - Control which pages and posts show the Mash Wallet
 
+## Having issues with the plugin?
+
+If you are having issues setting up and configure the plugin or have run into bug please feel free to reach out. 
+You can either create a issue in this repository or reach out directly on telegram: [Mash Partner Support](https://t.me/mashpartners).
