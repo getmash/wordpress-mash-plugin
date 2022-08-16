@@ -1,4 +1,5 @@
-# Mash Wallet Plugin
+# Mash - Monetize, Earn, and Grow your Experiences w/ Bitcoin Lightning
+## Mash Wordpress Plugin
 
 This plugin is powered by [Mash](https://getmash.com)
 

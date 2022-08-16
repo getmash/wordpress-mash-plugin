@@ -1,7 +1,7 @@
-=== Mash Wallet ===
+=== Mash - Monetize, Earn, and Grow your Experiences w/ Bitcoin Lightning ===
  
 Contributors: getmash
-Tags: bitcoin, lightning, creators, mash
+Tags: bitcoin, lightning, creators, mash, monetize, revenue, interaction, writers, bloggers, podcasters, developers, earn 
 Requires at least: 6.0.1
 Tested up to: 6.0.1
 Stable tag: 1.0.0
@@ -9,7 +9,7 @@ Requires PHP: 7.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
   
-Setup and configure Mash Wallet on your wordpress site.
+Setup and configure Mash on your wordpress site to enable you to monetize your content.
   
 == Description ==
   
