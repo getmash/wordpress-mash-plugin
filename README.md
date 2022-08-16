@@ -1,8 +1,8 @@
-# Mash Wallet Wordpress plugin
+# Mash Wallet Plugin
 
 Mash makes it easy for your users to pay-you-as-they-enjoy directly, for any amount. Your users can pay, donate and more for any action, usage, event or experience – whether revealing content/information, voting, watching, listening, clicking a “thanks boost” or filling out a form and usage. If you haven't already setup an earner account, please visit the Earner Dashboard to get started. You will need your earner_id from the dashboard.
 
-## Getting Started
+## Installation
 
 To set this plugin up, you first need an earner account on the [Mash Platform](https://www.getmash.com/). This will configure the wallet on your site to your earner account so you can quickly monetize content.
 
@@ -17,3 +17,7 @@ To setup a earner account, please visit the [Earner Dashboard](https://wallet.ge
 
 If you are having issues setting up and configure the plugin or have run into bug please feel free to reach out. 
 You can either create a issue in this repository or reach out directly on telegram: [Mash Partner Support](https://t.me/mashpartners).
+
+## About Mash
+
+This plugin is powered by [Mash](https://getmash.com)
