@@ -1,5 +1,6 @@
-# Mash - Monetize, Earn, and Grow your Experiences w/ Bitcoin Lightning
-## Mash Wordpress Plugin
+# Mash Wordpress Plugin
+
+**Mash - Monetize, Earn, and Grow your Experiences w/ Bitcoin Lightning**
 
 This plugin is powered by [Mash](https://getmash.com)
 
