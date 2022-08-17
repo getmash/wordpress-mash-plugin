@@ -213,8 +213,7 @@ if (!class_exists("MASH_WALLET")) :
     public static function mash_sanitize_text( $key )
     {
       if (!empty($_POST['data'][$key]) ) {
-          $post_data = stripslashes_deep($_POST['data'][$key]);
-          $post_data = sanitize_text_field($post_data);
+          $post_data = sanitize_text_field($_POST['data'][$key]);
           return $post_data;
       }
       return '';
