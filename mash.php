@@ -210,18 +210,13 @@ if (!class_exists("MASH_WALLET")) :
     /*
     * function to sanitize POST data
     */
-    public static function mash_sanitize_text( $key, $is_not_snippet = true )
+    public static function mash_sanitize_text( $key )
     {
-      if (!empty($_POST['data'][ $key ]) ) {
-          $post_data = stripslashes_deep($_POST['data'][ $key ]);
-          if ($is_not_snippet ) {
-              $post_data = sanitize_text_field($post_data);
-          } else {
-              $post_data = htmlentities($post_data);
-          }
+      if (!empty($_POST['data'][$key]) ) {
+          $post_data = stripslashes_deep($_POST['data'][$key]);
+          $post_data = sanitize_text_field($post_data);
           return $post_data;
       }
-
       return '';
     }
 
@@ -230,8 +225,8 @@ if (!class_exists("MASH_WALLET")) :
     */
     public static function mash_sanitize_array( $key, $type = 'integer' )
     {
-      if (!empty($_POST['data'][ $key ]) ) {
-          $arr = $_POST['data'][ $key ];
+      if (!empty($_POST['data'][$key]) ) {
+          $arr = $_POST['data'][$key];
 
           if (!is_array($arr) ) {
               return array();
@@ -272,48 +267,37 @@ if (!class_exists("MASH_WALLET")) :
 
       switch ( $settings->display_on ) {
       case 'All': 
-
-        // Gets the page ID of the blog page
-        $page_id = get_queried_object_id();
-        if (!in_array($page_id, $ex_pages) ) {
-          $out = self::mash_render_script($earner_id);
-        }
-        break;
-      case 's_pages':
-        
         if ( get_post_type() === 'post' ) {
-
-          $is_not_empty_s_posts = self::mash_not_empty( $s_posts );
-          
-          if ( $is_not_empty_s_posts ) {
-          
-            $id = get_queried_object_id();
-          
-            if (in_array($id, $s_posts) ) {
-          
-              $out = self::mash_render_script($earner_id);
-          
-            }
-          
+          $id = get_queried_object_id();
+          if (!in_array($id, $ex_posts)) {
+            $out = self::mash_render_script($earner_id);
           }
         } else if ( get_post_type() === 'page' ) {
-          
+          $id = get_queried_object_id();
+          if (!in_array($id, $ex_pages)) {
+            $out = self::mash_render_script($earner_id);
+          }
+        }   
+        break;
+      case 's_pages':
+        if ( get_post_type() === 'post' ) {
+          $is_not_empty_s_posts = self::mash_not_empty( $s_posts );
+          if ( $is_not_empty_s_posts ) {
+            $id = get_queried_object_id();
+            if (in_array($id, $s_posts) ) {
+              $out = self::mash_render_script($earner_id);
+            }
+          }
+        } else if ( get_post_type() === 'page' ) {
           $is_not_empty_s_pages = self::mash_not_empty( $s_pages ); 
-          
           if ( $is_not_empty_s_pages ) {
-          
             // Gets the page ID of the blog page
             $page_id = get_queried_object_id();
-            
             if (in_array($page_id, $s_pages) ) {
-            
               $out = self::mash_render_script($earner_id);
-            
             }
-          
           }
         }
-
         break;
       }
 
@@ -324,7 +308,7 @@ if (!class_exists("MASH_WALLET")) :
       $output = '
         <script>
           window.MashSettings = {
-            id: "' . $earner_id . '"
+            id: "' . esc_html($earner_id) . '"
           };
           var loader = function () {
             window.Mash.init(window.MashSettings);

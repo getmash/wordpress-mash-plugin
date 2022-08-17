@@ -15,12 +15,12 @@ $mash_form_action = admin_url('admin.php?page=mash-request-handler');
     setup an earner account, please visit the <a href="https://wallet.getmash.com/earn" rel="noopenenr,noreferrer">Earner Dashboard</a> to get started. You will need your <strong>earner_id</strong> from the dashboard.
   </p>
 
-  <form method="post" action=<?php echo $mash_form_action ?>>
+  <form method="post" action=<?php echo esc_attr($mash_form_action) ?>>
     <div class="form-content">
       <div class="form-field">
         <div class="form-field-label">Earner ID</div>
         <div class="form-field-input">
-          <input type="text" name="data[earner_id]" value="<?php echo esc_attr($earner_id); ?>" />
+          <input type="text" name="data[earner_id]" value="<?php echo esc_attr($earner_id); ?>" pattern="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}" />
         </div>
       </div>
 
