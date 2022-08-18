@@ -38,9 +38,9 @@ $mash_form_action = admin_url('admin.php?page=mash-request-handler');
             <?php
               foreach ( $mash_display_array as $dkey => $statusv) {
                 if ($display_on === $dkey ) {
-                  printf('<option value="%1$s" selected="selected">%2$s</option>', $dkey, $statusv);
+                  printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($dkey), esc_html($statusv));
                 } else {
-                  printf('<option value="%1$s">%2$s</option>', $dkey, $statusv);
+                  printf('<option value="%1$s">%2$s</option>', esc_attr($dkey), esc_html($statusv));
                 }
               }
             ?>
@@ -62,9 +62,9 @@ $mash_form_action = admin_url('admin.php?page=mash-request-handler');
               <?php
               foreach ( $mash_pages as $pdata ) {
                   if (in_array($pdata->ID, $ex_pages) ) {
-                      printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_attr($pdata->post_title));
+                      printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                   } else {
-                      printf('<option value="%1$s">%2$s</option>', esc_attr($pdata->ID), esc_attr($pdata->post_title));
+                      printf('<option value="%1$s">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                   }
               }
               ?>
@@ -79,9 +79,9 @@ $mash_form_action = admin_url('admin.php?page=mash-request-handler');
               <?php
               foreach ( $mash_posts as $pdata ) {
                   if (in_array($pdata->ID, $ex_posts) ) {
-                      printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_attr($pdata->post_title));
+                      printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                   } else {
-                      printf('<option value="%1$s">%2$s</option>', esc_attr($pdata->ID), esc_attr($pdata->post_title));
+                      printf('<option value="%1$s">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                   }
               }
               ?>
@@ -103,9 +103,9 @@ $mash_form_action = admin_url('admin.php?page=mash-request-handler');
               <?php
               foreach ( $mash_pages as $pdata ) {
                   if (in_array($pdata->ID, $s_pages) ) {
-                      printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_attr($pdata->post_title));
+                      printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                   } else {
-                      printf('<option value="%1$s">%2$s</option>', esc_attr($pdata->ID), esc_attr($pdata->post_title));
+                      printf('<option value="%1$s">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                   }
               }
               ?>
@@ -120,9 +120,9 @@ $mash_form_action = admin_url('admin.php?page=mash-request-handler');
               <?php
               foreach ( $mash_posts as $pdata ) {
                   if (in_array($pdata->ID, $s_posts) ) {
-                      printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_attr($pdata->post_title));
+                      printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                   } else {
-                      printf('<option value="%1$s">%2$s</option>', esc_attr($pdata->ID), esc_attr($pdata->post_title));
+                      printf('<option value="%1$s">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                   }
               }
               ?>
