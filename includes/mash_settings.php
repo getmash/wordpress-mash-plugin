@@ -10,9 +10,9 @@ $mash_form_action = admin_url('admin.php?page=mash-request-handler');
   <h1 class="mash-admin-page-title">Mash Wallet Settings</h1>
 
   <p style="margin-bottom:1.5rem;">
-    <a href="https://getmash.com" rel="noopenenr,noreferrer">Mash</a> makes it easy for your users to pay-you-as-they-enjoy directly, for any amount. Your users can pay, donate and more for any action, 
+    <a href="https://getmash.com" target="_blank" rel="noopener,noreferrer">Mash</a> makes it easy for your users to pay-you-as-they-enjoy directly, for any amount. Your users can pay, donate and more for any action, 
     usage, event or experience – whether revealing content/information, voting, watching, listening, clicking a “thanks boost” or filling out a form and usage. If you haven't already
-    setup an earner account, please visit the <a href="https://wallet.getmash.com/earn" rel="noopenenr,noreferrer">Earner Dashboard</a> to get started. You will need your <strong>earner_id</strong> from the dashboard.
+    setup an earner account, please visit the <a href="https://wallet.getmash.com/earn" target="_blank" rel="noopener,noreferrer">Earner Dashboard</a> to get started. You will need your <strong>earner_id</strong> from the dashboard.
   </p>
 
   <form method="post" action=<?php echo esc_attr($mash_form_action) ?>>

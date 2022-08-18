@@ -213,8 +213,7 @@ if (!class_exists("MASH_WALLET")) :
     public static function mash_sanitize_text( $key )
     {
       if (!empty($_POST['data'][$key]) ) {
-          $post_data = sanitize_text_field($_POST['data'][$key]);
-          return $post_data;
+          return sanitize_text_field( $_POST['data'][$key] );
       }
       return '';
     }
@@ -225,24 +224,14 @@ if (!class_exists("MASH_WALLET")) :
     public static function mash_sanitize_array( $key, $type = 'integer' )
     {
       if (!empty($_POST['data'][$key]) ) {
-          $arr = $_POST['data'][$key];
-
-          if (!is_array($arr) ) {
+          if (!is_array($_POST['data'][$key]) ) {
               return array();
           }
-
           if ('integer' === $type ) {
-              return array_map('absint', $arr);
-          } else { // strings
-              $new_array = array();
-              foreach ( $arr as $val ) {
-                  $new_array[] = sanitize_text_field($val);
-              }
+              return array_map( 'absint', $_POST['data'][$key] );
           }
-
-          return $new_array;
+          return array_map( 'sanitize_text_field',  $_POST['data'][$key] );
       }
-
       return array();
     }
 
