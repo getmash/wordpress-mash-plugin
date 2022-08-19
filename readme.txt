@@ -37,10 +37,12 @@ Simply add your earner id, and select where you want the wallet to appear. The p
 Simply deactivate and delete the plugin. 
   
 == Screenshots ==
+
 1. Mash Wallet Settings Screen
-1. Mash Wallet loaded on the site
+2. Mash Wallet loaded on the site
   
 == Changelog ==
+
 = 1.0 =
 * Plugin released
 * ADDED: Mash Wallet Plugin core implementation
