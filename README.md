@@ -1,10 +1,10 @@
 # Mash Wordpress Plugin
 
-**Mash - Monetize, Earn, and Grow your Experiences w/ Bitcoin Lightning**
+![Mash Banner](./assets/banner-1544x500.png)
 
 This plugin is powered by [Mash](https://getmash.com)
 
-Mash makes it easy for your users to pay-you-as-they-enjoy directly, for any amount. Your users can pay, donate and more for any action, usage, event or experience – whether revealing content/information, voting, watching, listening, clicking a “thanks boost” or filling out a form and usage. If you haven't already setup an earner account, please visit the Earner Dashboard to get started. You will need your earner_id from the dashboard.
+[Mash](https://getmash.com) makes it easy for you to earn more and for your users to pay-you-as-they-enjoy directly, for any amount. Your users can pay, donate and more for any action, usage, event or experience. Whether revealing written/digital content, voting, watching, listening, filling out a form, or showing their thanks with a “Boost”, Mash allows you to monetize in an entirely new and interactive way! 
 
 ## Installation
 
