@@ -3,7 +3,7 @@
 * Plugin Name: Mash - Monetize, Earn, and Grow your Experiences w/ Bitcoin Lightning
 * Plugin URI: https://github.com/getmash/wordpress-mash-plugin
 * Description: Setup and configure a Mash Wallet on your wordpress site. Earn more in an entirely new and interactive way!
-* Version: 1.0.0
+* Version: 1.1.0
 * Author: Mash
 * Author URI: https://www.getmash.com/
 **/
@@ -21,6 +21,9 @@ add_action('admin_menu', array( 'MASH_WALLET', 'create_menu' ));
 add_action('wp_head', array( 'MASH_WALLET', 'mash_load_wallet' ) );
 
 add_action('wp_ajax_mash-request', array( 'MASH_WALLET', 'mash_request_handler' ));
+
+// Shortcodes
+add_shortcode('mash_boosts', array( 'MASH_WALLET', 'mash_shortcode_boosts') );
 
 if (!class_exists("MASH_WALLET")) :
   
@@ -321,6 +324,32 @@ if (!class_exists("MASH_WALLET")) :
           return false;
       }
       return true;
+    }
+
+    public static function mash_shortcode_boosts( $atts = array(), $content = null, $tag = '' ) {
+
+      // normalize keys
+      $atts = array_change_key_case( (array)$atts, CASE_LOWER );
+
+      // override default attributes
+      $boost_atts = shortcode_atts(
+        array( 
+          'icon' => 'lightning',
+          'layout-mode' => 'float',
+          'float-location' => 'top-center',
+          'variant' => 'colorized'
+        ), $atts, $tag
+      );
+
+      $output = '<script defer src="https://components.getmash.com/boost/boost.js"></script>';
+      $output .= '<mash-boost-button ';
+      $output .= 'icon=' . esc_attr( $boost_atts['icon'] ) . ' ';
+      $output .= 'layout-mode=' . esc_attr( $boost_atts['layout-mode'] ) . ' ';
+      $output .= 'variant=' . esc_attr( $boost_atts['variant'] ) . ' ';
+      $output .= 'float-location=' . esc_attr( $boost_atts['float-location'] ) . ' ';
+      $output .= '></mash-boost-button>';
+    
+      return $output;
     }
   }
 
