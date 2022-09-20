@@ -4,7 +4,8 @@
 	"author": "Setup and configure a Mash Wallet on your wordpress site. Earn more in an entirely new and interactive way!",
 	"license": "GPL-2.0-or-later",
 	"scripts": {
-		"build": "wp-scripts build --webpack-copy-php --webpack-src-dir=blocks --output-path=build",
+		"clean": "rm -rf build",
+		"build": "yarn clean && wp-scripts build --webpack-copy-php --webpack-src-dir=blocks --output-path=build",
 		"lint:js": "wp-scripts lint-js ./blocks",
 		"packages-update": "wp-scripts packages-update",
 		"start": "wp-scripts start --webpack-copy-php --webpack-src-dir=blocks --output-path=build",
