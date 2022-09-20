@@ -52,10 +52,10 @@ Simply deactivate and delete the plugin.
 == Changelog ==
 
 = 1.2.0 =
-* Mash boost button block is added
+* ADDED: Mash boost button gutenberg block
 
 = 1.1.0 =
-* Mash boost button shortcode is added
+* ADDED: Mash boost button shortcode
 
 = 1.0.0 =
 * Plugin released
