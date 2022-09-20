@@ -3,6 +3,8 @@ import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, PanelRow, SelectControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 
+import useScript from '../utils/useScript';
+
 const ICON_OPTIONS = [
 	{ label: 'lightning', value: 'lightning' },
 	{ label: 'heart', value: 'heart' },
@@ -28,28 +30,17 @@ const VARIANT_OPTIONS = [
 	{ label: 'dark', value: 'dark' },
 ];
 
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @return {WPElement} Element to render.
- */
 export default function Edit(props) {
+	// https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#block-wrapper-props
 	const blockProps = useBlockProps();
+
 	const { attributes } = props;
 
 	const setAttribute = (key, value) => {
 		props.setAttributes({ [key]: value });
 	};
 
-	useEffect(() => {
-		const script = document.createElement('script');
-		script.src = 'https://components.getmash.com/boost/boost.js';
-		script.defer = true;
-		window.document.head.appendChild(script);
-	}, []);
+	useScript('https://components.getmash.com/boost/boost.js');
 
 	return (
 		<div className={props.className} {...blockProps}>
