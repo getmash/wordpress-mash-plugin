@@ -6,7 +6,8 @@
 	"scripts": {
 		"build": "wp-scripts build --webpack-copy-php --webpack-src-dir=blocks --output-path=build",
 		"format": "wp-scripts format",
-		"lint:js": "wp-scripts lint-js",
+		"lint:js": "wp-scripts lint-js ./blocks",
+		"lint:js:fix": "wp-scripts lint-js ./blocks",
 		"packages-update": "wp-scripts packages-update",
 		"start": "wp-scripts start --webpack-copy-php --webpack-src-dir=blocks --output-path=build",
 		"env:start": "wp-env start --update",
@@ -20,7 +21,8 @@
 		"@wordpress/prettier-config": "^2.0.0",
 		"@wordpress/scripts": "^24.1.0",
 		"@wordpress/server-side-render": "^3.15.0",
-		"prettier": "^2.7.1"
+		"prettier": "^2.7.1",
+		"react": "^18.2.0"
 	},
 	"prettier": "@wordpress/prettier-config",
 	"packageManager": "yarn@3.2.3"

@@ -12071,6 +12071,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "react@npm:18.2.0"
+  dependencies:
+    loose-envify: ^1.1.0
+  checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
+  languageName: node
+  linkType: hard
+
 "read-pkg-up@npm:^7.0.1":
   version: 7.0.1
   resolution: "read-pkg-up@npm:7.0.1"
@@ -14624,6 +14633,7 @@ __metadata:
     "@wordpress/scripts": ^24.1.0
     "@wordpress/server-side-render": ^3.15.0
     prettier: ^2.7.1
+    react: ^18.2.0
   languageName: unknown
   linkType: soft
 
