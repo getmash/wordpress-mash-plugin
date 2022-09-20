@@ -14,12 +14,14 @@ repo_name := "mash-monetize-earn-and-grow-your-experiences-w-bitcoin-lightning"
   cp -r ./includes/ {{svn_dir}}/{{repo_name}}/trunk/includes
   cp -r ./images/ {{svn_dir}}/{{repo_name}}/trunk/images
   cp -r ./css/ {{svn_dir}}/{{repo_name}}/trunk/css
+  cp -r ./shortcodes/ ${{svn_dir}}/{{repo_name}}/trunk/shortcodes
+  cp -r ./build/ ${{svn_dir}}/{{repo_name}}/trunk/build
   
 version := ""
 # build plugin zip file and create release
 @build:
   mkdir ./releases/v{{version}}
-  zip -R ./releases/v{{version}}/mash-wordpress-plugin-{{version}}.zip "assets/*" "css/*" "images/*" "includes/*" "js/*" "LICENSE" "readme.txt" "mash.php" "uninstall.php"
+  zip -R ./releases/v{{version}}/mash-wordpress-plugin-{{version}}.zip "assets/*" "css/*" "images/*" "includes/*" "js/*" "shortcodes/*" "build/*" "LICENSE" "readme.txt" "mash.php" "uninstall.php"
 
 
 

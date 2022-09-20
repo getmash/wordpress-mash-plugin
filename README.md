@@ -21,6 +21,10 @@ Once the plugin is installed, make sure you have a Mash Earner account. This acc
 
 - Add Mash Wallet to to your site without writing and any
 - Control which pages and posts show the Mash Wallet
+- Shortcodes
+  - Mash Boost Button
+- Gutenberg Blocks
+  - Mash Boost Button
 
 ## Having issues with the plugin?
 

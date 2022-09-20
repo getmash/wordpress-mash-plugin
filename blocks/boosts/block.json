@@ -1,0 +1,28 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "mash/boost-button",
+	"title": "Mash Boost Button",
+	"textdomain": "mash-blocks",
+	"icon": "money-alt",
+	"category": "mash-blocks",
+	"attributes": {
+		"icon": {
+			"type": "string",
+			"default": "lightning"
+		},
+		"layout-mode": {
+			"type": "string",
+			"default": "float"
+		},
+		"float-location": {
+			"type": "string",
+			"default": "top-center"
+		},
+		"variant": {
+			"type": "string",
+			"default": "colorized"
+		}
+	},
+	"editorScript": "file:./index.js"
+}
