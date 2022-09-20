@@ -4,7 +4,7 @@ Contributors: getmash
 Tags: bitcoin, lightning, creators, mash, monetize, revenue, interaction, writers, bloggers, podcasters, developers, earn 
 Requires at least: 6.0.0
 Tested up to: 6.0.2
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 Requires PHP: 7.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,6 +14,14 @@ Setup and configure a Mash Wallet on your wordpress site. Earn more in an entire
 == Description ==
   
 [Mash](https://getmash.com) makes it easy for you to earn more and for your users to pay-you-as-they-enjoy directly, for any amount. Your users can pay, donate and more for any action, usage, event or experience. Whether revealing written/digital content, voting, watching, listening, filling out a form, or showing their thanks with a “Boost”, Mash allows you to monetize in an entirely new and interactive way! 
+
+= Getting Started =
+
+Detailed guide on what can be done can be found here: https://guides.getmash.com/wordpress-add-consumer-wallet
+
+= Shortcodes = 
+
+* [mash_boosts] - Loads [Mash boost button](https://docs.getmash.com/?path=/docs/donations-boost-button--boost-button)
   
 == Installation ==
 
@@ -43,8 +51,11 @@ Simply deactivate and delete the plugin.
   
 == Changelog ==
 
+= 1.2.0 =
+* Mash boost button block is added
+
 = 1.1.0 =
-* Added Mash Boost shortcode
+* Mash boost button shortcode is added
 
 = 1.0.0 =
 * Plugin released

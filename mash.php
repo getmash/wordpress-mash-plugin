@@ -3,7 +3,7 @@
 * Plugin Name: Mash - Monetize, Earn, and Grow your Experiences w/ Bitcoin Lightning
 * Plugin URI: https://github.com/getmash/wordpress-mash-plugin
 * Description: Setup and configure a Mash Wallet on your wordpress site. Earn more in an entirely new and interactive way!
-* Version: 1.1.0
+* Version: 1.2.0
 * Author: Mash
 * Author URI: https://www.getmash.com/
 **/
@@ -15,19 +15,50 @@ if (!defined('WPINC')) {
   die;
 }
 
-register_activation_hook(__FILE__, array( 'MASH_WALLET', 'mash_plugin_install' ));
-add_action('admin_enqueue_scripts', array( 'MASH_WALLET', 'mash_enqueue_assets' ));
-add_action('admin_menu', array( 'MASH_WALLET', 'create_menu' ));
-add_action('wp_head', array( 'MASH_WALLET', 'mash_load_wallet' ) );
+/**
+ * Load blocks
+ */
+require_once plugin_dir_path( __FILE__ ) . 'build/boosts/index.php';
 
-add_action('wp_ajax_mash-request', array( 'MASH_WALLET', 'mash_request_handler' ));
+/**
+ * Load shortcodes
+ * 
+ */
+foreach ( glob( plugin_dir_path( __FILE__ ) . "shortcodes/*.php" ) as $file ) {
+  require_once $file;
+}
 
-// Shortcodes
-add_shortcode('mash_boosts', array( 'MASH_WALLET', 'mash_shortcode_boosts') );
+/**
+ * Configure Custom Gutenberg Block category
+ */
 
-if (!class_exists("MASH_WALLET")) :
+function register_mash_block_category( $categories ) {
+  $categories[] = array(
+    'slug' => 'mash-blocks',
+    'title' => 'Mash'
+  );
+  return $categories;
+}
+
+if ( version_compare( get_bloginfo( 'version' ), '5.8', '>=' ) ) {
+  add_filter( 'block_categories_all', 'register_mash_block_category');
+} else {
+  add_filter( 'block_categories', 'register_mash_block_category');
+}
+
+/**
+ * Mash Plugin configuration
+ */
+
+register_activation_hook(__FILE__, array( 'MASH_PLUGIN', 'mash_plugin_install' ));
+add_action('admin_enqueue_scripts', array( 'MASH_PLUGIN', 'mash_enqueue_assets' ));
+add_action('admin_menu', array( 'MASH_PLUGIN', 'create_menu' ));
+add_action('wp_head', array( 'MASH_PLUGIN', 'mash_load_wallet' ) );
+add_action('wp_ajax_mash-request', array( 'MASH_PLUGIN', 'mash_request_handler' ));
+
+if (!class_exists("MASH_PLUGIN")) :
   
-  class MASH_WALLET
+  class MASH_PLUGIN
   {
 
     public static $mash_db_version = "1";
@@ -92,7 +123,7 @@ if (!class_exists("MASH_WALLET")) :
         'Mash',
         'manage_options',
         'mash-wallet-settings',
-        array( 'MASH_WALLET', 'mash_settings_page' ),
+        array( 'MASH_PLUGIN', 'mash_settings_page' ),
         'dashicons-mash'
       );
 
@@ -103,7 +134,7 @@ if (!class_exists("MASH_WALLET")) :
         'Mash Request Handler',
         'manage_options',
         'mash-request-handler',
-        array( 'MASH_WALLET', 'mash_request_handler')
+        array( 'MASH_PLUGIN', 'mash_request_handler')
       );
     }
 
