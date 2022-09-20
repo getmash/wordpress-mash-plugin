@@ -5,9 +5,7 @@
 	"license": "GPL-2.0-or-later",
 	"scripts": {
 		"build": "wp-scripts build --webpack-copy-php --webpack-src-dir=blocks --output-path=build",
-		"format": "wp-scripts format",
 		"lint:js": "wp-scripts lint-js ./blocks",
-		"lint:js:fix": "wp-scripts lint-js ./blocks",
 		"packages-update": "wp-scripts packages-update",
 		"start": "wp-scripts start --webpack-copy-php --webpack-src-dir=blocks --output-path=build",
 		"env:start": "wp-env start --update",
