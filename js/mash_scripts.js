@@ -17,3 +17,16 @@ jQuery(function () {
 		plugins: ['remove_button'],
 	});
 });
+
+function mash_boosts_form_display_control(type) {
+	if (type === 'None') {
+		jQuery(`.boosts_exclude_picker`).hide();
+		jQuery(`.boosts_includes_picker`).hide();
+	} else if (type === 'All') {
+		jQuery(`.boosts_exclude_picker`).show();
+		jQuery(`.boosts_includes_picker`).hide();
+	} else {
+		jQuery(`.boosts_exclude_picker`).hide();
+		jQuery(`.boosts_includes_picker`).show();
+	}
+}

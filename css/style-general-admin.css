@@ -1,3 +1,7 @@
+.mash-settings * {
+  box-sizing: border-box;
+}
+
 .dashicons-mash {
   background-repeat: no-repeat;
   background-position: center;
@@ -29,3 +33,53 @@
 .form-field-input > input {
   width: 100% !important;
 } 
+
+.boost-form {
+  margin-top: 1rem;
+}
+
+.form-content-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-content-boosts-subtitle {
+  font-size: 1rem;
+}
+
+.boosts-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.boosts-radio-button {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.boosts-radio-button input {
+  margin: 0;
+}
+
+.boosts-section-header {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-decoration: underline;
+}
+
+.boosts-customization-container {
+  display: flex;
+}
+
+.boosts-customization-left-panel {
+  flex: 0 0 40%;
+}
+
+.boosts-customization-right-panel {
+  flex: 1 1 60%;
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+}
