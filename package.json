@@ -10,7 +10,8 @@
 		"packages-update": "wp-scripts packages-update",
 		"start": "wp-scripts start --webpack-copy-php --webpack-src-dir=blocks --output-path=build",
 		"env:start": "wp-env start --update",
-		"env:stop": "wp-env stop"
+		"env:stop": "wp-env stop",
+		"env:destroy": "wp-env destroy"
 	},
 	"devDependencies": {
 		"@wordpress/block-editor": "^10.0.0",
