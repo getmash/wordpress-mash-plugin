@@ -196,6 +196,8 @@ if (!class_exists("MASH_PLUGIN")) :
       current_user_can('administrator');
 
       global $wpdb;
+
+      // Retrieve and set variables that will be used in mash_settings.php for wallet settings
       $settings_table_name = $wpdb->prefix . self::$mash_settings_table;
       $settings = $wpdb->get_row( "SELECT * FROM $settings_table_name LIMIT 1" );
 
@@ -206,6 +208,8 @@ if (!class_exists("MASH_PLUGIN")) :
       $settings_ex_pages   = json_decode($settings->ex_pages);
       $settings_ex_posts   = json_decode($settings->ex_posts);
 
+
+      // Retrieve and set variables that will be used in mash_settings.php for boosts
       $boosts_table_name = $wpdb->prefix . self::$mash_boosts_table;
       $boost_settings = $wpdb->get_row( "SELECT * FROM $boosts_table_name LIMIT 1" );
 

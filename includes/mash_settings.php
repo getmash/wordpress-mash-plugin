@@ -155,24 +155,30 @@ $mash_posts       = get_posts();
           }
 
 
-          // Only show pages where the wallet is enabled
+          // Retrieve pages and post
           $mash_allowed_boost_pages = get_pages();
           $mash_allowed_boost_posts = get_posts();
 
+          // Collect IDs for pages and posts
           $mash_post_ids = array_map('mash_collect_ids', $mash_posts);
           $mash_page_ids = array_map('mash_collect_ids', $mash_pages);
 
+          // Create empty lists for filtered lists
           $mash_filtered_pages = array();
           $mash_filtered_posts = array();
 
           if ($settings_display_on === 'All') {
+            // Remove excluded pages and post from full list
             $mash_filtered_pages = array_diff($mash_page_ids, $settings_ex_pages);
             $mash_filtered_posts = array_diff($mash_post_ids, $settings_ex_posts);
           } else {
+
+            // Include only pages and posts that were selected in wallet settings
             $mash_filtered_pages = array_intersect($mash_page_ids, $settings_s_pages);
             $mash_filtered_posts = array_intersect($mash_post_ids, $settings_s_posts);
           }
 
+          // Build pages and post arrays back up from the filtered lists
           $mash_allowed_boost_pages = array_filter($mash_allowed_boost_pages, function($p) use($mash_filtered_pages) {
             return in_array($p->ID, $mash_filtered_pages);
           });
