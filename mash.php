@@ -199,12 +199,12 @@ if (!class_exists("MASH_PLUGIN")) :
       $settings_table_name = $wpdb->prefix . self::$mash_settings_table;
       $settings = $wpdb->get_row( "SELECT * FROM $settings_table_name LIMIT 1" );
 
-      $earner_id  = $settings->earner_id;
-      $display_on = $settings->display_on;
-      $s_pages    = json_decode($settings->s_pages);
-      $s_posts    = json_decode($settings->s_posts);
-      $ex_pages   = json_decode($settings->ex_pages);
-      $ex_posts   = json_decode($settings->ex_posts);
+      $settings_earner_id  = $settings->earner_id;
+      $settings_display_on = $settings->display_on;
+      $settings_s_pages    = json_decode($settings->s_pages);
+      $settings_s_posts    = json_decode($settings->s_posts);
+      $settings_ex_pages   = json_decode($settings->ex_pages);
+      $settings_ex_posts   = json_decode($settings->ex_posts);
 
       $boosts_table_name = $wpdb->prefix . self::$mash_boosts_table;
       $boost_settings = $wpdb->get_row( "SELECT * FROM $boosts_table_name LIMIT 1" );
@@ -278,6 +278,42 @@ if (!class_exists("MASH_PLUGIN")) :
           wp_json_encode( $s_posts ), 
           wp_json_encode( $ex_pages ), 
           wp_json_encode( $ex_posts ),
+          current_time('Y-m-d H:i:s'),
+          sanitize_text_field($current_user->display_name),
+        )
+      );
+
+
+      // Boosts should only show up on pages with Wallet enabled,
+      // Filter existing boosts table to match what is changing in the wallet
+      $boosts_table_name = $wpdb->prefix . self::$mash_boosts_table;
+      $boosts            = $wpdb->get_row( "SELECT * FROM $boosts_table_name LIMIT 1" );
+      $next_boosts_s_pages = json_decode($boosts->s_pages);
+      $next_boosts_s_posts = json_decode($boosts->s_posts);
+      if ($boosts->display_on === 's_pages') {
+
+        if ($display_on === 'All') {
+          // Remove excluded pages from currently selected pages
+          $next_boosts_s_pages  = array_diff($next_boosts_s_pages, $ex_pages);
+          $next_boosts_s_posts  = array_diff($next_boosts_s_posts, $ex_posts);
+        } else if ($display_on === 's_pages') {
+
+          // Keep only selected pages
+          $next_boosts_s_pages  = array_intersect($next_boosts_s_pages, $s_pages);
+          $next_boosts_s_posts  = array_intersect($next_boosts_s_posts, $s_posts);
+        }
+      } 
+
+      // Updated Boosts table
+      $wpdb->query(
+        $wpdb->prepare(
+          "UPDATE $boosts_table_name 
+          SET `s_pages` = %s, 
+          `s_posts` = %s, 
+          `last_revision_date` = %s,
+          `last_modified_by` = %s",
+          wp_json_encode(array_values($next_boosts_s_pages)), 
+          wp_json_encode(array_values($next_boosts_s_posts)),
           current_time('Y-m-d H:i:s'),
           sanitize_text_field($current_user->display_name),
         )
@@ -478,6 +514,10 @@ if (!class_exists("MASH_PLUGIN")) :
       $out = '';
 
       if (self::is_mash_on_site($settings)) {
+
+        $post_type = get_post_type();
+        $id = get_queried_object_id();
+
         switch ($boosts->display_on) {
           case 'All':
             $arr = $post_type === 'page' ? json_decode($boosts->ex_pages) : json_decode($boosts->ex_posts);

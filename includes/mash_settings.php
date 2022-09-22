@@ -26,7 +26,7 @@ $mash_posts       = get_posts();
       <div class="form-field">
         <div class="form-field-label">Earner ID</div>
         <div class="form-field-input">
-          <input type="text" name="data[earner_id]" value="<?php echo esc_attr($earner_id); ?>" pattern="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}" />
+          <input type="text" name="data[earner_id]" value="<?php echo esc_attr($settings_earner_id); ?>" pattern="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}" />
         </div>
       </div>
 
@@ -35,8 +35,8 @@ $mash_posts       = get_posts();
           'All' => 'All',
           's_pages' => 'Specific Pages/Posts' 
         );
-        $mash_settings_show_ex_style = ('All' === $display_on) ? '' : 'display:none;';
-        $mash_settings_show_s_style  = ('s_pages' === $display_on) ? '' : 'display:none;';
+        $mash_settings_show_ex_style = ('All' === $settings_display_on) ? '' : 'display:none;';
+        $mash_settings_show_s_style  = ('s_pages' === $settings_display_on) ? '' : 'display:none;';
       ?>
 
       <div class="form-field">
@@ -45,7 +45,7 @@ $mash_posts       = get_posts();
           <select name="data[display_on]" onchange="mash_filter_form(this.value);">
             <?php
               foreach ( $mash_display_array as $dkey => $statusv) {
-                if ($display_on === $dkey ) {
+                if ($settings_display_on === $dkey ) {
                   printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($dkey), esc_html($statusv));
                 } else {
                   printf('<option value="%1$s">%2$s</option>', esc_attr($dkey), esc_html($statusv));
@@ -62,7 +62,7 @@ $mash_posts       = get_posts();
         <select name="data[ex_pages][]" multiple>
               <?php
               foreach ( $mash_pages as $pdata ) {
-                  if (in_array($pdata->ID, $ex_pages) ) {
+                  if (in_array($pdata->ID, $settings_ex_pages) ) {
                       printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                   } else {
                       printf('<option value="%1$s">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
@@ -79,7 +79,7 @@ $mash_posts       = get_posts();
         <select name="data[ex_posts][]" multiple>
               <?php
               foreach ( $mash_posts as $pdata ) {
-                  if (in_array($pdata->ID, $ex_posts) ) {
+                  if (in_array($pdata->ID, $settings_ex_posts) ) {
                       printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                   } else {
                       printf('<option value="%1$s">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
@@ -96,7 +96,7 @@ $mash_posts       = get_posts();
         <select name="data[s_pages][]" multiple>
               <?php
               foreach ( $mash_pages as $pdata ) {
-                  if (in_array($pdata->ID, $s_pages) ) {
+                  if (in_array($pdata->ID, $settings_s_pages) ) {
                       printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                   } else {
                       printf('<option value="%1$s">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
@@ -113,7 +113,7 @@ $mash_posts       = get_posts();
         <select name="data[s_posts][]" multiple>
               <?php
               foreach ( $mash_posts as $pdata ) {
-                  if (in_array($pdata->ID, $s_posts) ) {
+                  if (in_array($pdata->ID, $settings_s_posts) ) {
                       printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                   } else {
                       printf('<option value="%1$s">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
@@ -139,7 +139,7 @@ $mash_posts       = get_posts();
       <div>
         <h4 class="boosts-section-header">Page & Post Placement</h4>
 
-        <h5 class="boosts-placement-callout">Mash Boost Button will only show up on the page if the Wallet has been enabled on it. See Wallet settings above.</h4>
+        <h5 class="boosts-placement-callout">Mash Boost Button will only show up on the page if the Wallet has been enabled on it. Only pages that are enabled are selectable in the form below. </h4>
 
         <?php
           $mash_boosts_display_on = array(
@@ -149,7 +149,38 @@ $mash_posts       = get_posts();
           );
           $mash_boosts_show_ex_style = ('All' === $boosts_display_on) ? '' : 'display:none;';
           $mash_boosts_show_s_style  = ('s_pages' === $boosts_display_on) ? '' : 'display:none;';
-        ?>
+
+          function mash_collect_ids($obj) {
+            return $obj->ID;
+          }
+
+
+          // Only show pages where the wallet is enabled
+          $mash_allowed_boost_pages = get_pages();
+          $mash_allowed_boost_posts = get_posts();
+
+          $mash_post_ids = array_map('mash_collect_ids', $mash_posts);
+          $mash_page_ids = array_map('mash_collect_ids', $mash_pages);
+
+          $mash_filtered_pages = array();
+          $mash_filtered_posts = array();
+
+          if ($settings_display_on === 'All') {
+            $mash_filtered_pages = array_diff($mash_page_ids, $settings_ex_pages);
+            $mash_filtered_posts = array_diff($mash_post_ids, $settings_ex_posts);
+          } else {
+            $mash_filtered_pages = array_intersect($mash_page_ids, $settings_s_pages);
+            $mash_filtered_posts = array_intersect($mash_post_ids, $settings_s_posts);
+          }
+
+          $mash_allowed_boost_pages = array_filter($mash_allowed_boost_pages, function($p) use($mash_filtered_pages) {
+            return in_array($p->ID, $mash_filtered_pages);
+          });
+
+          $mash_allowed_boost_posts = array_filter($mash_allowed_boost_posts, function($p) use($mash_filtered_posts) {
+            return in_array($p->ID, $mash_filtered_posts);
+          });
+        ?> 
 
         <div class="form-field">
           <div class="form-field-label">Site Display</div>
@@ -173,7 +204,7 @@ $mash_posts       = get_posts();
           <div class="form-field-input">
             <select name="data[ex_pages][]" multiple>
                   <?php
-                  foreach ( $mash_pages as $pdata ) {
+                  foreach ( $mash_allowed_boost_pages as $pdata ) {
                       if (in_array($pdata->ID, $boosts_ex_pages) ) {
                           printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                       } else {
@@ -190,7 +221,7 @@ $mash_posts       = get_posts();
           <div class="form-field-input">
             <select name="data[ex_posts][]" multiple>
                   <?php
-                  foreach ( $mash_posts as $pdata ) {
+                  foreach ( $mash_allowed_boost_posts as $pdata ) {
                       if (in_array($pdata->ID, $boosts_ex_posts) ) {
                           printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                       } else {
@@ -208,8 +239,8 @@ $mash_posts       = get_posts();
         <div class="form-field-input">
           <select name="data[s_pages][]" multiple>
                 <?php
-                foreach ( $mash_pages as $pdata ) {
-                    if (in_array($pdata->ID, $$boosts_s_pages) ) {
+                foreach ( $mash_allowed_boost_pages as $pdata ) {
+                    if (in_array($pdata->ID, $boosts_s_pages) ) {
                         printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                     } else {
                         printf('<option value="%1$s">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
@@ -225,7 +256,7 @@ $mash_posts       = get_posts();
           <div class="form-field-input">
             <select name="data[s_posts][]" multiple>
                 <?php
-                foreach ( $mash_posts as $pdata ) {
+                foreach ( $mash_allowed_boost_posts as $pdata ) {
                     if (in_array($pdata->ID, $boosts_s_posts) ) {
                         printf('<option value="%1$s" selected="selected">%2$s</option>', esc_attr($pdata->ID), esc_html($pdata->post_title));
                     } else {
@@ -340,7 +371,7 @@ $mash_posts       = get_posts();
           </div>
         </div>
         <div class="boosts-customization-right-panel">
-          <image src="<?php echo plugin_dir_url( __FILE__ ) . "../images/boosts.png" ?>" style="max-width:400px;"/>
+          <image src="<?php echo plugin_dir_url( __FILE__ ) . "../images/boosts.svg" ?>" class="boost-img" style="max-width:600px;"/>
         </div>
       </div>
 
