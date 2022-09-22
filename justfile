@@ -23,7 +23,7 @@ version := ""
 @build:
   yarn build
   mkdir ./releases/v{{version}}
-  zip -R ./releases/v{{version}}/mash-wordpress-plugin-{{version}}.zip "assets/*" "css/*" "images/*" "includes/*" "js/*" "shortcodes/*" "build/**/*" "LICENSE" "readme.txt" "mash.php" "uninstall.php" -x "node_modules/*"
+  zip -R ./releases/v{{version}}/mash-wordpress-plugin-{{version}}.zip "assets/*" "css/*" "images/*" "includes/*" "js/*" "shortcodes/*" "build/**/*" "LICENSE" "readme.txt" "mash.php" "uninstall.php" -x "node_modules/*" -x ".DS_Store"
 
 
 

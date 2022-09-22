@@ -10,5 +10,7 @@ delete_option($option_name);
 // Drop a custom db table
 global $wpdb;
 $table_name = $wpdb->prefix . 'mash_settings';
+$boost_table_name = $wpdb->prefix . 'mash_boost_settings';
 
 $wpdb->query("DROP TABLE IF EXISTS $table_name");
+$wpdb->query("DROP TABLE IF EXISTS $boost_table_name");

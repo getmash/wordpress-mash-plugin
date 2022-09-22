@@ -3,7 +3,7 @@
 * Plugin Name: Mash - Monetize, Earn, and Grow your Experiences w/ Bitcoin Lightning
 * Plugin URI: https://github.com/getmash/wordpress-mash-plugin
 * Description: Setup and configure a Mash Wallet on your wordpress site. Earn more in an entirely new and interactive way!
-* Version: 1.3.0
+* Version: 1.3.1
 * Author: Mash
 * Author URI: https://www.getmash.com/
 **/
@@ -51,6 +51,7 @@ if ( version_compare( get_bloginfo( 'version' ), '5.8', '>=' ) ) {
  */
 
 register_activation_hook(__FILE__, array( 'MASH_PLUGIN', 'mash_plugin_install' ));
+add_action('plugins_loaded', array( 'MASH_PLUGIN', 'mash_plugin_updated' ));
 add_action('admin_enqueue_scripts', array( 'MASH_PLUGIN', 'mash_enqueue_assets' ));
 add_action('admin_menu', array( 'MASH_PLUGIN', 'create_menu' ));
 add_action('wp_head', array( 'MASH_PLUGIN', 'mash_load_wallet' ));
@@ -64,7 +65,7 @@ if (!class_exists("MASH_PLUGIN")) :
   class MASH_PLUGIN
   {
 
-    public static $mash_db_version = "2";
+    public static $mash_db_version = "3";
     public static $mash_settings_table = "mash_settings";
     public static $mash_boosts_table = "mash_boost_settings";
 
@@ -104,9 +105,9 @@ if (!class_exists("MASH_PLUGIN")) :
         `s_posts` MEDIUMTEXT DEFAULT NULL,
         `ex_pages` MEDIUMTEXT DEFAULT NULL,
         `ex_posts` MEDIUMTEXT DEFAULT NULL,
-        `location` TINYTEXT NOT NULL DEFAULT 'bottom-center',
-        `variant` TINYTEXT NOT NULL DEFAULT 'colorized',
-        `icon` TINYTEXT NOT NULL DEFAULT 'lightning',
+        `location` TINYTEXT NOT NULL,
+        `variant` TINYTEXT NOT NULL,
+        `icon` TINYTEXT NOT NULL,
         `last_revision_date` datetime DEFAULT NULL,
         `last_modified_by` varchar(300) DEFAULT NULL,
         PRIMARY KEY (`id`)
@@ -144,6 +145,9 @@ if (!class_exists("MASH_PLUGIN")) :
           // Data
           array(
             'display_on' => 'None',
+            'location' => 'bottom-center',
+            'icon' => 'lightning',
+            'variant' => 'colorized',
             's_pages' => wp_json_encode( [] ),
             's_posts' => wp_json_encode( [] ),
             'ex_pages' => wp_json_encode( [] ),
@@ -151,6 +155,16 @@ if (!class_exists("MASH_PLUGIN")) :
           )
         );
       }
+    }
+
+    /**
+     * Function that runs when a plugin has been updated
+     */
+    public static function mash_plugin_updated() {
+      if (get_option('mash_db_version') != self::$mash_db_version) {
+        self::mash_plugin_install();
+      }
+      update_option('mash_db_version', self::$mash_db_version);
     }
 
     /**
