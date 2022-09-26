@@ -13,9 +13,10 @@ $mash_posts       = get_posts();
   <h1 class="mash-admin-page-title">Mash</h1>
 
   <p style="margin-bottom:1.5rem;">
-    <a href="https://getmash.com" target="_blank" rel="noopener,noreferrer">Mash</a> makes it easy for your users to pay-you-as-they-enjoy directly, for any amount. Your users can pay, donate and more for any action, 
-    usage, event or experience – whether revealing content/information, voting, watching, listening, clicking a “thanks boost” or filling out a form and usage. If you haven't already
-    setup an earner account, please visit the <a href="https://wallet.getmash.com/earn" target="_blank" rel="noopener,noreferrer">Earner Dashboard</a> to get started. You will need your <strong>earner_id</strong> from the dashboard.
+    <a href="https://getmash.com" target="_blank" rel="noopener,noreferrer">Mash</a> makes it easy for creators like you to earn more for your quality experiences. It’s the fastest & easiest way for your users to donate & pay you for your experiences – no matter the price, large or small. Your users can pay, donate and more for any action, usage, event or experience. To get started, you'll need to set up an account at the <a href="https://wallet.getmash.com/earn" target="_blank" rel="noopener,noreferrer">Earner with Mash Website</a>. Get your <strong>earner_id</strong> from the Settings page and add it below to connect the plugin to your account.
+    </p>
+    <p style="margin-bottom:1.5rem;">
+    Boosts, let your fans one-click donate & like at them same time. They say “thanks” with $0.05 contribution each click, and you get to learn what they love most – without them having to type in a credit card in every-time. Content Monetization Widgets allow you to earn more in new and interactive ways – no large purchase commitment barriers. You set pricing and they pay-as-they-enjoy while watching a great video, to getting secret details like your email. You can have your users support you automatically, or with one-click for your amazing experiences. You can learn more at the <a href="https://guides.getmash.com/" target="_blank" rel="noopener,noreferrer">Mash Guides</a>.
   </p>
 
   <form id="settings_form" method="post" action=<?php echo esc_attr($mash_form_action) ?>>
