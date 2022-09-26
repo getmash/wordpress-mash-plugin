@@ -135,7 +135,7 @@ $mash_posts       = get_posts();
   <form id="boosts_form" class="boost-form" method="post" action=<?php echo esc_attr($mash_boosts_form_action) ?>>
     <div class="form-content">
       <h2 class="form-content-title">Boosts - Single-click-donations!</h2>
-      <h3 class="form-content-boosts-subtitle">Every time a user clicks or taps boosts, their tipping you $0.05 USD</h3>
+      <h3 class="form-content-boosts-subtitle">Now, every time a user clicks the boost-button, they're tipping you $0.05 USD</h3>
       
       <div>
         <h4 class="boosts-section-header">Page & Post Placement</h4>
