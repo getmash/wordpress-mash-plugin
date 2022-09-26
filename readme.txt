@@ -9,17 +9,17 @@ Requires PHP: 7.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
   
-Setup and configure Mash's Creator Monetization tools on your wordpress site. Earn more, learn what your customers love in a new and and interactive way!
+Setup and configure Mash's Creator Monetization tools on your WordPress site. Earn more, learn what your customers love in a new and and interactive way!
   
-== Description – Creator Monetization Tools ==
+== Overview of Creator Monetization Tools ==
   
-[Mash](https://getmash.com) makes it easy for creators like you to earn more for your high-quality experiences. It’s the fastest & easiest way for your users to donate & pay you for your experiences – no matter the price, large or small. Your users can pay, donate and more for any action, usage, event or experience.
+[Mash](https://getmash.com) makes it easy to earn more for your quality experiences. It’s the fastest & easiest way for your users to donate & pay for your content – at any price, large or small. It works for articles, instant-one-click-donations, video content, downloading files and more.
 
-**Boosts**, let your fans one-click donate & like at them same time. They say “thanks” with $0.05 contribution each click, and you get to learn what they love most – without them having to type in a credit card in every-time. 
+**Boosts**, let your fans one-click-donate and say “thanks” at the same time. Each tap is a $0.05 contribution, and you get to learn what they love most – without them having to type in a credit card in every-time. 
 
-**Content Monetization Widgets** allow you to earn more in new and interactive ways – no large purchase commitment barriers. You set pricing and they pay-as-they-enjoy while watching a great video, to getting secret details like your email. You can have your users support you automatically, or with one-click for your amazing experiences. 
+**Content Monetization Widgets** allow you to earn more in new and interactive ways – no large purchase commitment barriers. You set pricing and they pay-as-they-enjoy to access an article, watch a great video, and even to get secret details like your email. You can have your users support you automatically, or with one-click for your amazing experiences. 
 
-**Mash Wallet** enables your users have access to their money to use on your site, across internet, send where they want or get on-boarded quickly. 
+**Mash Wallet** enables your users have access to their money to use on your site, across the internet, and to send where they want.
 
 With Mash, you’re adding payments built for creators – earning while building relationships with more of your fans, in an entirely new and interactive way! We’re here to help you unlock better business models that you and your users will love.
 
@@ -34,16 +34,15 @@ Visit the [Earn with Mash Web App](https://wallet.getmash.com/earn) and set up a
 Use the Mash Wordpress Plugin directly to add the Mash wallet to the pages and posts of your choosing. Need help, or want to add the code to your them, here’s a [detailed guide for Wordpress](https://guides.getmash.com/wordpress-add-consumer-wallet).
 
 = Add Floating Boosts to your site or specific pages =
-Use the Mash Wordpress Plugin directly to add the Mash wallet to the pages and posts of your choosing. Need help, or want to add the code to your them, here’s a detailed Wordpress Guide for Boosts](https://guides.getmash.com/wordpress-add-boosts).
+Use the Mash Wordpress Plugin directly to add the Mash wallet to the pages and posts of your choosing. Need help, or want to add the code to your them, here’s a detailed [Wordpress Guide for Boosts](https://guides.getmash.com/wordpress-add-boosts).
 
 = Embedded HTML Block Capabilities =
 You can monetize anything using embedded HTML. More will be available with Blocks and short-codes. Reach out if you want to be a beta tester. Find out more at [Mash](https://getmash.com), [Guides](https://guides.getmash.com) + [Storybook](https://docs.getmash.com) for overviews and design canvases.
 
 * Articles & Blog Posts – From a review of your favourite products, to a how-to guide or recipe. Hide some content in a section or an entire post.
-* Secret Text Buttons – Let users contribute to get in touch, or find out a secret fact, like your favourite travel destination.
+* Downloads – Share high-quality assets for a fee. For cheat sheets, mods, image assets, filter packs and more.
 * Videos – For premium deep-dives, behind the scenes content and more
 * Links – Have a great resource to share but want users to contribute a small bit ask users to contribute for premium links to resources.
-* Downloads – Share high-quality assets for a fee. For cheat sheets, mods, image assets, filter packs and more.
 * Donate Buttons – Let them say thanks, but a bit more than the boost.
 * Donations and support from everywhere online. Share your lightning address, lightning QR code and Mash Page with your users to support you directly from all your channels, including LinkTree, withKoji, Twitter, Reddit, Instagram, Facebook, Stackoverflow, Github… you name it!
 
@@ -53,7 +52,7 @@ You can monetize anything using embedded HTML. More will be available with Block
 
 = Adding more monetization =
 
-With the consumer wallet, it also allows you to charge your users, and get paid for your amazing content with Mash’s monetization widgets – you can give freebies, and have different prices/tiers for each. Currently, you can add them easily with [Custom HTML blocks](https://wordpress.com/support/wordpress-editor/blocks/custom-html-block/). And the [Mash Guides](https://guides.getmash.com] + [Storybook](https://docs.getmash.com) documents have general overviews.
+With the consumer wallet, it also allows you to charge your users, and get paid for your amazing content with Mash’s monetization widgets – you can give freebies, and have different prices/tiers for each. Currently, you can add them easily with [Custom HTML blocks](https://wordpress.com/support/wordpress-editor/blocks/custom-html-block/). And the [Mash Guides](https://guides.getmash.com) + [Storybook](https://docs.getmash.com) documents have general overviews.
 
 == Installation ==
 
