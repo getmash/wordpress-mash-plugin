@@ -4,7 +4,7 @@ Contributors: getmash
 Tags: bitcoin, lightning, creators, mash, monetize, revenue, interaction, writers, bloggers, payments, developers, earn 
 Requires at least: 6.0.0
 Tested up to: 6.0.2
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 Requires PHP: 7.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -51,7 +51,10 @@ You can monetize anything using embedded HTML. More will be available with Block
 
 * [mash_boosts] - Loads the Mash Boost button for one-click donations. You can adjust the designs, floating locations and more. Here's a guide for currently available properties and how to adjust the(https://guides.getmash.com/wordpress-add-boosts) & [here's a design storybook canvas](https://docs.getmash.com/?path=/docs/donations-boost-button--boost-button).
 
-  
+= Adding more monetization =
+
+With the consumer wallet, it also allows you to charge your users, and get paid for your amazing content with Mash’s monetization widgets – you can give freebies, and have different prices/tiers for each. Currently, you can add them easily with [Custom HTML blocks](https://wordpress.com/support/wordpress-editor/blocks/custom-html-block/). And the [Mash Guides](https://guides.getmash.com] + [Storybook](https://docs.getmash.com) documents have general overviews.
+
 == Installation ==
 
 1. Install the plugin through your main Wordpress Dashboard at wp-admin/plugin-install.php. There are [detailed instructions available for Wordpress at](https://guides.getmash.com/wordpress-add-consumer-wallet).
@@ -63,10 +66,6 @@ OR
 3. Go to the **Plugins** page and activate the plugin.
 
 Once the plugin is installed, make sure you have a Mash Earner account. This account can be created here: https://wallet.getmash.com/earn
-
-= Adding more monetization =
-
-With the consumer wallet, it also allows you to charge your users, and get paid for your amazing content with Mash’s monetization widgets – you can give freebies, and have different prices/tiers for each. Currently, you can add them easily with [Custom HTML blocks](https://wordpress.com/support/wordpress-editor/blocks/custom-html-block/). And the [Mash Guides](https://guides.getmash.com] + [Storybook](https://docs.getmash.com) documents have general overviews.
 
 == Frequently Asked Questions ==
   
@@ -80,10 +79,17 @@ Simply deactivate and delete the plugin.
   
 == Screenshots ==
 
-1. Mash Wallet Settings Screen
-2. Mash Wallet loaded on the site
+1. Mash Boosts
+2. Mash Written Content
+3. Mash Video Content
+4. Mash Wallet
   
 == Changelog ==
+
+= 1.3.2 =
+* ADDED: Improved screenshots to plugin page
+* ADDED: Boosts descriptions to plugin settings page
+* FIXED: Copy around plugin description
 
 = 1.3.1 =
 * FIXED: Drop default value from text columns since it is not supported in database
