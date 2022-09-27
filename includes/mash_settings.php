@@ -286,8 +286,8 @@ $mash_posts       = get_posts();
                   'bottom-center' => 'bottom-center  (recommended)',
                   'bottom-left'   => 'bottom-left',
                   'top-center'    => 'top-center',
-                  'top-middle'    => 'bottom-middle',
-                  'top-right'     => 'bottom-right',
+                  'top-middle'    => 'top-middle',
+                  'top-right'     => 'top-right',
                 );
               ?>
               <div class="boosts-radio-group">
