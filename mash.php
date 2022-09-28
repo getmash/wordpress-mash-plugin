@@ -3,7 +3,7 @@
 * Plugin Name: Mash - Monetize, Earn, and Grow your Experiences w/ Bitcoin Lightning
 * Plugin URI: https://github.com/getmash/wordpress-mash-plugin
 * Description: Setup and configure a Mash Wallet on your wordpress site. Earn more in an entirely new and interactive way!
-* Version: 1.3.3
+* Version: 1.3.4
 * Author: Mash
 * Author URI: https://www.getmash.com/
 **/
@@ -462,17 +462,16 @@ if (!class_exists("MASH_PLUGIN")) :
 
       switch ( $settings->display_on ) {
       case 'All': 
-        if ( get_post_type() === 'post' ) {
+        $post_type = get_post_type();
+        if ( $post_type === 'post' || $post_type === 'page' ) {
           $id = get_queried_object_id();
-          if (!in_array($id, $ex_posts)) {
+          $arr = $post_type === 'page' ? $ex_pages : $ex_posts;
+          if (!in_array($id, $arr)) {
             $out = self::mash_render_script($earner_id);
           }
-        } else if ( get_post_type() === 'page' ) {
-          $id = get_queried_object_id();
-          if (!in_array($id, $ex_pages)) {
-            $out = self::mash_render_script($earner_id);
-          }
-        }   
+        } else {
+          $out = self::mash_render_script($earner_id);
+        }
         break;
       case 's_pages':
         if ( get_post_type() === 'post' ) {
@@ -516,7 +515,7 @@ if (!class_exists("MASH_PLUGIN")) :
           var head = document.getElementsByTagName("head")[0];
           head.appendChild(script);
         </script>
-      ';
+      ' . "<!--" . is_home() . "-->";
       return $output;
     }
 
@@ -560,16 +559,17 @@ if (!class_exists("MASH_PLUGIN")) :
     public static function is_mash_on_site($settings) {
       $post_type = get_post_type();
       $id = get_queried_object_id();
-      $wallet_arr = 'page' ? json_decode($settings->s_pages) : json_decode($settings->s_post);
-
+      
       switch ($settings->display_on) {
         case 'All':
-          if (empty($wallet_arr) || !in_array($id, $wallet_arr)) {
+          $arr = $post_type === 'page' ? json_decode($settings->ex_pages) : json_decode($settings->ex_posts);
+          if (empty($arr) || !in_array($id, $arr)) {
             return true;
           }
           break;
         case 's_pages':
-          if (!empty($wallet_arr) && in_array($id, $wallet_arr)) {
+          $arr = $post_type === 'page' ? json_decode($settings->s_pages) : json_decode($settings->s_post);
+          if (!empty($arr) && in_array($id, $arr)) {
             return true;
           }
           break;
