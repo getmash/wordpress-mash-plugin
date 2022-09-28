@@ -286,7 +286,7 @@ $mash_posts       = get_posts();
                   'bottom-center' => 'bottom-center  (recommended)',
                   'bottom-left'   => 'bottom-left',
                   'top-center'    => 'top-center',
-                  'top-middle'    => 'top-middle',
+                  'top-left'      => 'top-left',
                   'top-right'     => 'top-right',
                 );
               ?>
@@ -294,7 +294,7 @@ $mash_posts       = get_posts();
                 <?php
                   foreach ( $mash_location_options as $lkey => $loc) {
                   
-                    $input = '<input type="radio" id="location" name="data[location]" value="' . esc_attr($lkey) . '"';
+                    $input = '<input type="radio" id="' . esc_attr($lkey) . '" name="data[location]" value="' . esc_attr($lkey) . '"';
                     if ($boosts_location === $lkey) {
                       $input .= ' checked="checked"';
                     }
@@ -303,10 +303,11 @@ $mash_posts       = get_posts();
                     printf('
                       <div class="boosts-radio-button">
                         %1$s
-                        <label for="location">%2$s</label>
+                        <label for="%3$s">%2$s</label>
                       </div>',
                         $input,
-                        esc_attr($loc)
+                        esc_attr($loc),
+                        esc_attr($lkey)
                     );            
                   }
                 ?>
@@ -326,7 +327,7 @@ $mash_posts       = get_posts();
                 <?php
                   foreach ( $mash_variant_options as $vkey => $variant) {
                   
-                    $input = '<input type="radio" id="variant" name="data[variant]" value="' . esc_attr($vkey) . '"';
+                    $input = '<input type="radio" id="' . esc_attr($vkey) . '" name="data[variant]" value="' . esc_attr($vkey) . '"';
                     if ($boosts_variant === $vkey) {
                       $input .= ' checked="checked"';
                     }
@@ -335,10 +336,11 @@ $mash_posts       = get_posts();
                     printf('
                       <div class="boosts-radio-button">
                         %1$s
-                        <label for="variant">%2$s</label>
+                        <label for="%3$s">%2$s</label>
                       </div>',
                         $input,
-                        esc_attr($variant)
+                        esc_attr($variant),
+                        esc_attr($vkey)
                     );            
                   }
                 ?>
@@ -358,7 +360,7 @@ $mash_posts       = get_posts();
                 <?php
                   foreach ( $mash_icon_options as $ikey => $icon) {
                   
-                    $input = '<input type="radio" id="icon" name="data[icon]" value="' . esc_attr($ikey) . '"';
+                    $input = '<input type="radio" id="' . esc_attr($ikey) .'" name="data[icon]" value="' . esc_attr($ikey) . '"';
                     if ($boosts_icon === $ikey) {
                       $input .= ' checked="checked"';
                     }
@@ -367,10 +369,11 @@ $mash_posts       = get_posts();
                     printf('
                       <div class="boosts-radio-button">
                         %1$s
-                        <label for="icon">%2$s</label>
+                        <label for="%3$s">%2$s</label>
                       </div>',
                         $input,
-                        esc_attr($icon)
+                        esc_attr($icon),
+                        esc_attr($ikey)
                     );            
                   }
                 ?>
