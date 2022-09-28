@@ -462,10 +462,9 @@ if (!class_exists("MASH_PLUGIN")) :
 
       switch ( $settings->display_on ) {
       case 'All': 
-        $post_type = get_post_type();
-        if ( $post_type === 'post' || $post_type === 'page' ) {
+        if ( is_page() || is_single() ) {
           $id = get_queried_object_id();
-          $arr = $post_type === 'page' ? $ex_pages : $ex_posts;
+          $arr = is_page() ? $ex_pages : $ex_posts;
           if (!in_array($id, $arr)) {
             $out = self::mash_render_script($earner_id);
           }
@@ -474,7 +473,7 @@ if (!class_exists("MASH_PLUGIN")) :
         }
         break;
       case 's_pages':
-        if ( get_post_type() === 'post' ) {
+        if ( is_single() ) {
           $is_not_empty_s_posts = self::mash_not_empty( $s_posts );
           if ( $is_not_empty_s_posts ) {
             $id = get_queried_object_id();
@@ -482,7 +481,7 @@ if (!class_exists("MASH_PLUGIN")) :
               $out = self::mash_render_script($earner_id);
             }
           }
-        } else if ( get_post_type() === 'page' ) {
+        } else if ( is_page() ) {
           $is_not_empty_s_pages = self::mash_not_empty( $s_pages ); 
           if ( $is_not_empty_s_pages ) {
             // Gets the page ID of the blog page
@@ -537,14 +536,19 @@ if (!class_exists("MASH_PLUGIN")) :
 
         switch ($boosts->display_on) {
           case 'All':
-            $arr = $post_type === 'page' ? json_decode($boosts->ex_pages) : json_decode($boosts->ex_posts);
-            $is_arr_not_empty = self::mash_not_empty($arr);
-            if (!$is_arr_not_empty || !in_array($id, $arr)) {
+
+            if (is_page() || is_single()) {
+              $arr = $post_type === 'page' ? json_decode($boosts->ex_pages) : json_decode($boosts->ex_posts);
+              $is_arr_not_empty = self::mash_not_empty($arr);                
+              if (!$is_arr_not_empty || !in_array($id, $arr)) {
+                $out = self::mash_render_boost($boosts->location, $boosts->variant, $boosts->icon);
+              }
+            } else {
               $out = self::mash_render_boost($boosts->location, $boosts->variant, $boosts->icon);
             }
             break;
           case 's_pages':
-            $arr = $post_type === 'page' ? json_decode($boosts->s_pages) : json_decode($boosts->s_posts);
+            $arr = is_page() ? json_decode($boosts->s_pages) : json_decode($boosts->s_posts);
             $is_arr_not_empty = self::mash_not_empty($arr);
             if ($is_arr_not_empty && in_array($id, $arr)) {
               $out = self::mash_render_boost($boosts->location, $boosts->variant, $boosts->icon);
@@ -562,13 +566,17 @@ if (!class_exists("MASH_PLUGIN")) :
       
       switch ($settings->display_on) {
         case 'All':
-          $arr = $post_type === 'page' ? json_decode($settings->ex_pages) : json_decode($settings->ex_posts);
-          if (empty($arr) || !in_array($id, $arr)) {
+          if (is_page() || is_single()) {
+            $arr = is_page() ? json_decode($settings->ex_pages) : json_decode($settings->ex_posts);
+            if (empty($arr) || !in_array($id, $arr)) {
+              return true;
+            }
+          } else {
             return true;
           }
           break;
         case 's_pages':
-          $arr = $post_type === 'page' ? json_decode($settings->s_pages) : json_decode($settings->s_post);
+          $arr = is_page() ? json_decode($settings->s_pages) : json_decode($settings->s_post);
           if (!empty($arr) && in_array($id, $arr)) {
             return true;
           }
