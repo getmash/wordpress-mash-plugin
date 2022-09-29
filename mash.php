@@ -3,7 +3,7 @@
 * Plugin Name: Mash - Monetize, Earn, and Grow your Experiences w/ Bitcoin Lightning
 * Plugin URI: https://github.com/getmash/wordpress-mash-plugin
 * Description: Setup and configure a Mash Wallet on your wordpress site. Earn more in an entirely new and interactive way!
-* Version: 1.3.5
+* Version: 1.3.6
 * Author: Mash
 * Author URI: https://www.getmash.com/
 **/
@@ -465,7 +465,7 @@ if (!class_exists("MASH_PLUGIN")) :
         if ( is_page() || is_single() ) {
           $id = get_queried_object_id();
           $arr = is_page() ? $ex_pages : $ex_posts;
-          if (!in_array($id, $arr)) {
+          if (empty($arr) || !in_array($id, $arr)) {
             $out = self::mash_render_script($earner_id);
           }
         } else {
@@ -474,16 +474,14 @@ if (!class_exists("MASH_PLUGIN")) :
         break;
       case 's_pages':
         if ( is_single() ) {
-          $is_not_empty_s_posts = self::mash_not_empty( $s_posts );
-          if ( $is_not_empty_s_posts ) {
+          if ( !empty($s_posts) ) {
             $id = get_queried_object_id();
             if (in_array($id, $s_posts) ) {
               $out = self::mash_render_script($earner_id);
             }
           }
         } else if ( is_page() ) {
-          $is_not_empty_s_pages = self::mash_not_empty( $s_pages ); 
-          if ( $is_not_empty_s_pages ) {
+          if ( !empty($s_pages) ) {
             // Gets the page ID of the blog page
             $page_id = get_queried_object_id();
             if (in_array($page_id, $s_pages) ) {
@@ -528,19 +526,20 @@ if (!class_exists("MASH_PLUGIN")) :
       $settings = $wpdb->get_row( "SELECT * FROM $settings_table_name LIMIT 1" );
 
       $out = '';
+      
+      $boost_s_pages = json_decode($boosts->s_pages);
+      $boost_s_posts = json_decode($boosts->s_posts);
+      $boost_ex_pages = json_decode($boosts->ex_pages);
+      $boost_ex_posts = json_decode($boosts->ex_posts);
 
-      if (self::is_mash_on_site($settings)) {
 
-        $post_type = get_post_type();
-        $id = get_queried_object_id();
-
+     if (self::is_mash_on_site($settings)) {
         switch ($boosts->display_on) {
           case 'All':
-
-            if (is_page() || is_single()) {
-              $arr = $post_type === 'page' ? json_decode($boosts->ex_pages) : json_decode($boosts->ex_posts);
-              $is_arr_not_empty = self::mash_not_empty($arr);                
-              if (!$is_arr_not_empty || !in_array($id, $arr)) {
+            if ( is_page() || is_single() ) {
+              $id = get_queried_object_id();
+              $arr = is_page() ? $boost_ex_pages : $boost_ex_posts;
+              if (empty($arr) || !in_array($id, $arr)) {
                 $out = self::mash_render_boost($boosts->location, $boosts->variant, $boosts->icon);
               }
             } else {
@@ -548,42 +547,69 @@ if (!class_exists("MASH_PLUGIN")) :
             }
             break;
           case 's_pages':
-            $arr = is_page() ? json_decode($boosts->s_pages) : json_decode($boosts->s_posts);
-            $is_arr_not_empty = self::mash_not_empty($arr);
-            if ($is_arr_not_empty && in_array($id, $arr)) {
-              $out = self::mash_render_boost($boosts->location, $boosts->variant, $boosts->icon);
+            if ( is_single() ) {
+              if ( !empty($boost_s_posts) ) {
+                $id = get_queried_object_id();
+                if (in_array($id, $boost_s_posts) ) {
+                  $out = self::mash_render_boost($boosts->location, $boosts->variant, $boosts->icon);
+                }
+              }
+            } else if ( is_page() ) {
+              if ( !empty($boost_s_pages) ) {
+                $page_id = get_queried_object_id();
+                if (in_array($page_id, $boost_s_pages) ) {
+                  $out = self::mash_render_boost($boosts->location, $boosts->variant, $boosts->icon);
+                }
+              }
             }
             break;
         }
       }
-        
+
+      $out .= '<!--' . $boosts->display_on . '-->';
+      $out .= '<!--' . $boosts->ex_pages . '-->';
+      $out .= '<!--' . $boosts->ex_posts . '-->';
+      $out .= '<!--' . json_encode(self::is_mash_on_site($settings)) . '-->';
+      $out .= '<!--' . get_queried_object_id() . '-->';
+      $out .= '<!--' . json_encode(is_page()) . '-->';
+      $out .= '<!--' . json_encode(is_single()) . '-->';
       echo $out;  
     }
 
     public static function is_mash_on_site($settings) {
-      $post_type = get_post_type();
-      $id = get_queried_object_id();
       
+      $id = get_queried_object_id();
+      $ex_pages = json_decode($settings->ex_pages);
+      $ex_posts = json_decode($settings->ex_posts);
+      $s_pages = json_decode($settings->s_pages);
+      $s_posts = json_decode($settings->s_posts);
+
+      $is_on_site = false;
+
       switch ($settings->display_on) {
         case 'All':
-          if (is_page() || is_single()) {
-            $arr = is_page() ? json_decode($settings->ex_pages) : json_decode($settings->ex_posts);
+          if ( is_page() || is_single() ) {
+            $arr = is_page() ? $ex_pages : $ex_posts;
             if (empty($arr) || !in_array($id, $arr)) {
-              return true;
+              $is_on_site = true;
             }
           } else {
-            return true;
+            $is_on_site = true;
           }
           break;
         case 's_pages':
-          $arr = is_page() ? json_decode($settings->s_pages) : json_decode($settings->s_post);
-          if (!empty($arr) && in_array($id, $arr)) {
-            return true;
+          if ( is_single() ) {
+            if (!empty($s_posts) && in_array($id, $s_posts)) {
+              $is_on_site = true;
+            }
+          } else if ( is_page() ) {
+            if (!empty($s_pages) && in_array($id, $s_pages)) {
+              $is_on_site = true;
+            }
           }
           break;
       }
-
-      return false;
+      return $is_on_site;
     }
 
     public static function mash_render_boost($location, $variant, $icon) {
