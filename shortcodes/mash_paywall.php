@@ -30,7 +30,7 @@ function mash_paywall_shortcode( $atts = array(), $content = null, $tag = '' ) {
   $output .= 'title="' . esc_attr( $paywall_atts['title'] ) . '" ';
   $output .= 'subtitle="' . esc_attr( $paywall_atts['subtitle'] ) . '" ';
   $output .= '>';
-  $output .= $content;
+  $output .= do_shortcode($content);
   $output .= '</mash-paywall> ';
   $output .= '</div>' ;
 
