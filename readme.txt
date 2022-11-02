@@ -4,7 +4,7 @@ Contributors: getmash
 Tags: bitcoin, lightning, creators, mash, monetize, revenue, interaction, writers, bloggers, payments, developers, earn 
 Requires at least: 6.0.0
 Tested up to: 6.0.2
-Stable tag: 1.3.6
+Stable tag: 1.4.0
 Requires PHP: 7.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -48,7 +48,8 @@ You can monetize anything using embedded HTML. More will be available with Block
 
 = Shortcodes = 
 
-* [mash_boosts] - Loads the Mash Boost button for one-click donations. You can adjust the designs, floating locations and more. Here's a guide for currently available properties and how to adjust the(https://guides.getmash.com/wordpress-add-boosts) & [here's a design storybook canvas](https://docs.getmash.com/?path=/docs/donations-boost-button--boost-button).
+* [mash_boost] - Loads the Mash Boost button for one-click donations. You can adjust the designs, floating locations and more. Here's a guide for currently available properties and how to adjust the(https://guides.getmash.com/wordpress-add-boosts) & [here's a design storybook canvas](https://docs.getmash.com/?path=/docs/donations-boost-button--boost-button).
+* [mash_paywall] - Wraps content in a Mash-powered paywall.
 
 = Adding more monetization =
 
@@ -84,6 +85,9 @@ Simply deactivate and delete the plugin.
 4. Mash Wallet
   
 == Changelog ==
+
+= 1.4.0 =
+* ADDED: Mash Paywall component shortcode and Gutenberg block
 
 = 1.3.6 =
 * FIXED: Logic around boosts rendering on certain pages

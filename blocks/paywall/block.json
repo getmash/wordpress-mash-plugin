@@ -1,0 +1,23 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "mash/paywall",
+	"title": "Mash Paywall",
+	"textdomain": "mash-blocks",
+	"icon": "superhero",
+	"category": "mash-blocks",
+	"attributes": {
+		"resource": {
+			"type": "string"
+		},
+		"title": {
+			"type": "string",
+			"default": "Enjoy some free content, then pay-to-enjoy"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Setting a budget will auto unlock content."
+		}
+	},
+	"editorScript": "file:./index.js"
+}
