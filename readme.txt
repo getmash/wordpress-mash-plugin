@@ -49,6 +49,7 @@ You can monetize anything using embedded HTML. More will be available with Block
 = Shortcodes = 
 
 * [mash_boost] - Loads the Mash Boost button for one-click donations. You can adjust the designs, floating locations and more. Here's a guide for currently available properties and how to adjust the(https://guides.getmash.com/wordpress-add-boosts) & [here's a design storybook canvas](https://docs.getmash.com/?path=/docs/donations-boost-button--boost-button).
+* [mash_paywall] - Wraps content in a Mash-powered paywall.
 
 = Adding more monetization =
 
