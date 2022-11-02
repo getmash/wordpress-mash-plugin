@@ -3,7 +3,7 @@
 * Plugin Name: Mash - Monetize, Earn, and Grow your Experiences w/ Bitcoin Lightning
 * Plugin URI: https://github.com/getmash/wordpress-mash-plugin
 * Description: Setup and configure a Mash Wallet on your wordpress site. Earn more in an entirely new and interactive way!
-* Version: 1.3.6
+* Version: 1.4.6
 * Author: Mash
 * Author URI: https://www.getmash.com/
 **/
@@ -18,7 +18,8 @@ if (!defined('WPINC')) {
 /**
  * Load blocks
  */
-require_once plugin_dir_path( __FILE__ ) . 'build/boosts/index.php';
+require_once plugin_dir_path( __FILE__ ) . 'build/boost/index.php';
+require_once plugin_dir_path( __FILE__ ) . 'build/paywall/index.php';
 
 /**
  * Load shortcodes

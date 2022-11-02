@@ -26,5 +26,6 @@ function mash_boost_button_shortcode( $atts = array(), $content = null, $tag = '
   return $output;
 }
 
+add_shortcode('mash_boost', 'mash_boost_button_shortcode');
+// Include deprecated plural version
 add_shortcode('mash_boosts', 'mash_boost_button_shortcode');
-?>

@@ -9,8 +9,7 @@ function register_mash_boost_button() {
 
 // Callback to load the shortcode for the block passing through the attributes
 function mash_boost_button_render_callback($attributes) {
-	$boosts = mash_boost_button_shortcode($attributes);
-	return $boosts;
+	return mash_boost_button_shortcode($attributes);
 }
 
 add_action( 'init', 'register_mash_boost_button' );
