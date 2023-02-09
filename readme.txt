@@ -4,7 +4,7 @@ Contributors: getmash
 Tags: bitcoin, lightning, creators, mash, monetize, revenue, interaction, writers, bloggers, payments, developers, earn 
 Requires at least: 6.0.0
 Tested up to: 6.0.2
-Stable tag: 1.4.1
+Stable tag: 2.0.0
 Requires PHP: 7.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -31,10 +31,13 @@ Visit the [Earn with Mash Web App](https://wallet.getmash.com/earn) and set up a
 
 = Add Mash Wallet =
 
-Use the Mash Wordpress Plugin directly to add the Mash wallet to the pages and posts of your choosing. Need help, or want to add the code to your them, here’s a [detailed guide for Wordpress](https://guides.getmash.com/wordpress-add-consumer-wallet).
+Use the Mash Wordpress Plugin directly to add the Mash wallet to your site. Use the Mash Platform to configure how and where you want Mash to appear on your site.
 
 = Add Floating Boosts to your site or specific pages =
-Use the Mash Wordpress Plugin directly to add the Mash wallet to the pages and posts of your choosing. Need help, or want to add the code to your them, here’s a detailed [Wordpress Guide for Boosts](https://guides.getmash.com/wordpress-add-boosts).
+Use the Wordpress plugin to add the Mash wallet to the pages and posts of your choosing. Once your "Earner ID" is configured in the plugin, navigate to [Boosts](https://wallet.getmash.com/earn/boosts) in the Mash Platform and configure how and where you want Boosts to show up on your site.
+
+= Add Page Revealer to your site or specific pages =
+Use the Wordpress plugin to add the Mash wallet to the pages and posts of your choosing. Once your "Earner ID" is configured in the plugin, navigate to [Page Revealers](https://wallet.getmash.com/earn/page-revealers) in the Mash Platform and configure how and where you want a Page Revealer to show up on your site. The Page Revealer allows you request payment to access a piece of content on your site.
 
 = Embedded HTML Block Capabilities =
 You can monetize anything using embedded HTML. More will be available with Blocks and short-codes. Reach out if you want to be a beta tester. Find out more at [Mash](https://getmash.com), [Guides](https://guides.getmash.com) + [Storybook](https://docs.getmash.com) for overviews and design canvases.
@@ -85,6 +88,12 @@ Simply deactivate and delete the plugin.
 4. Mash Wallet
   
 == Changelog ==
+
+= 2.0.0 =
+* ADDED: New SDK initialization to allow Mash Platform configuration settings to take effect on wordpress site. This allow all configuration to be completed in the [Mash Platform](https://wallet.getmash.com/earn)
+* MODIFIED: Revamped plugin settings page and simplified Mash Platform configuration.
+* REMOVED: Ability to configure where the Mash Wallet appears on your site. You can now be configure the Mash Wallet in the [Mash Platform](https://wallet.getmash.com/earn/install)
+* REMOVED: Ability to configure boosts in the Plugin Settings. You can add Boosts through the [Mash Platform](https://wallet.getmash.com/earn/boosts)
 
 = 1.4.1 =
 * FIXED: Issue with boost shortcode colliding with previous, stale version
