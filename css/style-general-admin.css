@@ -1,3 +1,10 @@
+.dashicons-mash {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 42px auto;
+  background-image: url("../images/mash-logo.svg");
+}
+
 #wpcontent:has(#wpbody):has(#wpbody-content):has(.mash-page) {
   padding-left: 0px;
 
