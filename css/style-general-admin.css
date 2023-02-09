@@ -1,97 +1,324 @@
-.mash-settings {
-  margin: 0 auto;
-  max-width: 878px;
+#wpcontent:has(#wpbody):has(#wpbody-content):has(.mash-page) {
+  padding-left: 0px;
+
+}
+
+#wpbody:has(#wpbody-content):has(.mash-page) {
+  background-color: #FBF8FB;
+}
+
+::placeholder {
+  color: #DCCDE4;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: #DCCDE4;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: #DCCDE4;
+}
+
+.mash-page {
+  position: relative;
+  padding-top: 5rem;
+}
+
+.mash-page * {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.mash-header {
+  align-items: center;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 20px rgba(220, 205, 228, 0.5);
+  display: flex;
+  justify-content: space-between;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 2rem;
+  height: 5rem;
   width: 100%;
 }
 
-.mash-settings * {
-  box-sizing: border-box;
+.mash-content {
+  background-color: #FBF8FB;
+  padding: 24px 32px;
 }
 
-.dashicons-mash {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 42px auto;
-  background-image: url("../images/mash-logo.svg");
+.mash-card {
+  background: #FFFFFF;
+  border: 1px solid #EDE4F2;
+  border-radius: 8px;
+  box-shadow: 0px 3px 3px rgba(99, 92, 118, 0.08);
+  padding: 1.5rem 2rem;
 }
 
-.form-content {
-  background-color: #fff;
-  border: 1px solid black;
-  padding: 1rem;
-}
-
-.form-field {
+.mash-button {
   align-items: center;
+  background-color: #867f9b;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
   display: flex;
-  margin-bottom: 1.25rem;
-}
-
-.form-field-label {
-  font-weight: bold;
-  flex: 0 1 25%;
-}
-
-.form-field-input {
-  flex: 2 1 75%;
-}
-
-.form-field-input > input {
-  width: 100% !important;
-} 
-
-.boost-form {
-  margin-top: 1rem;
-}
-
-.form-content-title {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.form-content-boosts-subtitle {
+  justify-content: center;
+  font-weight: 500;
   font-size: 1rem;
+  line-height: 1.375rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
 }
 
-.boosts-radio-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.mash-button:hover {
+  background-color: #635C76;
+  color: #fff;
 }
 
-.boosts-radio-button {
-  align-items: center;
-  display: flex;
-  gap: 0.5rem;
+.mash-button:active {
+  background-color: #404040;
+  color: #BBAFCA;
 }
 
-.boosts-radio-button input {
+.mash-button.cta {
+  background-color: #DD87DA;
+  color: #fff;
+}
+
+.mash-button.cta:hover {
+  background-color: #FFBAFC;
+  color: #fff;
+}
+
+.mash-button.cta:active {
+  background-color: #DD87DA;
+  color: #FFBAFC";
+}
+
+.mash-button.save-button {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.mash-button.secondary {
+  background-color: #fff;
+  border: 1px solid #bbafca;
+  color: #4e4760;
+}
+
+.mash-button.secondary:hover {
+  background-color: #F4EBFA;
+  border-color: #635C76;
+  color: #4e4760;
+}
+
+.mash-button.secondary:active {
+  background-color: #DCCDE4;
+  border-color: #AB9EBB;
+  color: #AB9EBB;
+}
+
+.header-five {
+  color: #404040;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.575rem;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.body-text {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.4rem;
   margin: 0;
 }
 
-.boosts-section-header {
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
+.link {
+  color: #dd87da;
   text-decoration: underline;
 }
 
-.boosts-customization-container {
-  display: flex;
+.mash-input {
+  background: #FFFFFF;
+  border: 1px solid #EDE4F2;
+  border-radius: 4px;
+  color: #404040;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+  padding: 0.5rem;
 }
 
-.boosts-customization-left-panel {
-  flex: 0 0 30%;
+.mash-input-label {
+  color: #8B6D8C;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;
 }
 
-.boosts-customization-right-panel {
-  flex: 1 1 60%;
+.mash-input-container {
   display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-row-equal-children > div {
+  flex: 1 1 0px;
+}
+
+.gap-16 {
+  gap: 16px;
+}
+
+.add-mash-banner {
   align-items: center;
-  padding: 3rem 2rem;
+  display: flex;
+  gap: 2rem;
 }
 
-.boost-img {
-  max-width: 500px;
-  width: 100%;
+@media (max-width: 730px) {
+  .add-mash-banner {
+    flex-direction: column;
+  }
+}
+
+.connect-mash {
+  display: flex;
+}
+
+@media (max-width: 980px) {
+  .connect-mash {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .connect-mash.vertical-separator {
+    display: none;
+  }
+}
+
+
+.vertical-separator {
+  background-color: #EDE4F2;
+  margin: 0 40px;
+  width: 1px;
   height: auto;
+}
+
+.connect-mash-left {
+  flex: 1 1 38%;
+}
+
+.connect-mash-right {
+  flex: 1 1 50%;
+}
+
+.vertical-card {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.vertical-card > div:first-child {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.customize {
+  display: flex;
+  flex-direction: column;
+}
+
+.blocks {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+}
+
+.resource-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.resource-columns > .resource-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1 1 0px;
+}
+
+.resource-header {
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  text-transform: uppercase;
+  color: #AB9EBB;
+  margin: 0;
+}
+
+.resource-link {
+  align-items: center;
+  background: #FBF8FB;
+  border: 1px solid #EDE4F2;
+  border-radius: 8px;
+  color: #404040;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  padding: 0.875rem 1rem;
+  text-decoration: none;
+}
+
+.resource-link > div:first-child {
+  align-items: center;
+  display: flex;
+  gap: 1.125rem;
+}
+
+.resource-link-icon,
+.resource-link-angle {
+  height: 24px;
+  width: 24px;
+}
+
+.horizontal-separator {
+  background-color: #EDE4F2;
+  margin: 40px 0;
+  height: 1px;
+  width: 100%;
+}
+
+.contact-links {
+  display: flex;
+}
+
+.help-link {
+  color: #404040;
+  display: flex;
+  gap: 0.625rem;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  text-decoration: none;
+}
+
+.help-link:hover,
+.resource-link:hover {
+  color: #404040;
 }
