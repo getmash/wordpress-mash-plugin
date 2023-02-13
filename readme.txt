@@ -4,7 +4,7 @@ Contributors: getmash
 Tags: bitcoin, lightning, creators, mash, monetize, revenue, interaction, writers, bloggers, payments, developers, earn 
 Requires at least: 6.0.0
 Tested up to: 6.0.2
-Stable tag: 2.0.1
+Stable tag: 2.1.0
 Requires PHP: 7.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -88,6 +88,13 @@ Simply deactivate and delete the plugin.
 4. Mash Wallet
   
 == Changelog ==
+
+= 2.1.0 =
+* MODIFIED: Shortcodes to use updated web components
+* MODIFIED: Renamed Mash Paywall block to Mash Content Revealer
+* ADDED: mash_content_revealer shortcode, deprecated mash_paywall
+* ADDED: Additional configuration options for Mash Boost shortcode
+* ADDED: Additional configuration options for Mash Content Revealer
 
 = 2.0.1 =
 * FIXED: Dashboard menu icon for Mash shows up now.

@@ -22,6 +22,26 @@
 		"variant": {
 			"type": "string",
 			"default": "colorized"
+		},
+		"display-mode": {
+			"type": "string",
+			"default": "with-text"
+		},
+		"size": {
+			"type": "string",
+			"default": "md"
+		},
+		"mobile-display-mode": {
+			"type": "string",
+			"default": "inherit"
+		},
+		"mobile-float-location": {
+			"type": "string",
+			"default": "inherit"
+		},
+		"mobile-size": {
+			"type": "string",
+			"default": "inherit"
 		}
 	},
 	"editorScript": "file:./index.js"
