@@ -15,7 +15,7 @@ $mash_posts       = get_posts();
       <img src="<?php echo plugin_dir_url( __FILE__ ) . "../images/mash-text-logo.svg" ?>"/>
     </div>
     <div class="mash-earner-app-link">   <?php 
-        echo  ($settings_earner_id == '<earner_id>' ? '<a class="mash-button cta" href="https://wallet.getmash.com/earn" target="_blank">New? Create a New Account</a>' : '<a class="mash-button secondary" href="https://wallet.getmash.com/earn" target="_blank">Open Earn With Mash App</a>');
+        echo  ($settings_earner_id == '' ? '<a class="mash-button cta" href="https://wallet.getmash.com/earn" target="_blank">New? Create a New Account</a>' : '<a class="mash-button secondary" href="https://wallet.getmash.com/earn" target="_blank">Open Earn With Mash App</a>');
       ?>
     </div>
   </div>
@@ -54,7 +54,7 @@ $mash_posts       = get_posts();
               class="mash-input" 
               placeholder="Ex. b34dbb03-44cf-4dfc-a062-5ee7868f9d16" 
               name="data[earner_id]" 
-              value="<?php echo ($settings_earner_id == '<earner_id>' ? '' : esc_attr($settings_earner_id)); ?>" 
+              value="<?php echo (esc_attr($settings_earner_id)); ?>" 
               pattern="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}" />
           </div>
           <button type="submit" class="mash-button save-button">Save</button>
