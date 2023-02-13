@@ -22,7 +22,7 @@ function mash_paywall_shortcode( $atts = array(), $content = null, $tag = '' ) {
 
   if (!preg_match($resource_regex, $paywall_atts['resource'])) {
     // Render an error if the resource attribute is invalid
-    return '<p style="color: red">[mash_paywall error: Invalid configuration (resource ID must be specified in UUID format). Please contact website owner.]</p>';
+    return '<p style="color: red">[mash_content_revealer error: Invalid configuration ' . esc_attr( $paywall_atts['resource'] ) . ' (resource ID must be specified in UUID format). Please contact website owner.]</p>';
   }
   
   $output = '<div> ';
