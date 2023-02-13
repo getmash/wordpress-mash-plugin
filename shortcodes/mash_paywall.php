@@ -13,6 +13,10 @@ function mash_paywall_shortcode( $atts = array(), $content = null, $tag = '' ) {
       'resource' => '',
       'title' => 'Enjoy some free content, then pay-to-enjoy',
       'subtitle' => 'Setting a budget will auto unlock content.',
+      'button-label' => 'Unlock Content',
+      'button-variant' => 'solid',
+      'button-size' => 'md',
+      'loading-indicator-size' => '14',
     ), $atts, $tag
   );
 
@@ -22,19 +26,27 @@ function mash_paywall_shortcode( $atts = array(), $content = null, $tag = '' ) {
   }
   
   $output = '<div> ';
-  $output .= '<script defer src="https://components.getmash.com/content/paywall.js"></script>';
-  $output .= '<mash-paywall ';
+  $output .= '<script defer src="https://widgets.getmash.com/content/content-revealer.js"></script>';
+  $output .= '<mash-content-revealer ';
   // Use the post's name as the web component's key
   $output .= 'key="' . esc_attr( get_post_field( 'post_name', get_post() ) ) . '" ';
   $output .= 'resource="' . esc_attr( $paywall_atts['resource'] ) . '" ';
   $output .= 'title="' . esc_attr( $paywall_atts['title'] ) . '" ';
   $output .= 'subtitle="' . esc_attr( $paywall_atts['subtitle'] ) . '" ';
+  $output .= 'button-label="' . esc_attr( $paywall_atts['button-label'] ) . '" ';
+  $output .= 'button-variant="' . esc_attr( $paywall_atts['button-variant'] ) . '" ';
+  $output .= 'button-size="' . esc_attr( $paywall_atts['button-size'] ) . '" ';
+  $output .= 'loading-indicator-size="' . esc_attr( $paywall_atts['loading-indicator-size'] ) . '" ';
+
   $output .= '>';
   $output .= do_shortcode($content);
-  $output .= '</mash-paywall> ';
+  $output .= '</mash-content-revealer> ';
   $output .= '</div>' ;
 
   return $output;
 }
 
+add_shortcode('mash_content_revealer', 'mash_paywall_shortcode');
+
+// Include deprecated version
 add_shortcode('mash_paywall', 'mash_paywall_shortcode');
