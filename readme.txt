@@ -4,7 +4,7 @@ Contributors: getmash
 Tags: bitcoin, lightning, creators, mash, monetize, revenue, interaction, writers, bloggers, payments, developers, earn 
 Requires at least: 6.0.0
 Tested up to: 6.0.2
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 Requires PHP: 7.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -88,6 +88,9 @@ Simply deactivate and delete the plugin.
 4. Mash Wallet
   
 == Changelog ==
+
+= 2.1.1 =
+* FIXED: Links for Customize actions
 
 = 2.1.0 =
 * MODIFIED: Shortcodes to use updated web components
