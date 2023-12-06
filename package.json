@@ -14,14 +14,14 @@
 		"env:destroy": "wp-env destroy"
 	},
 	"devDependencies": {
-		"@wordpress/block-editor": "^10.0.0",
-		"@wordpress/blocks": "^11.16.0",
-		"@wordpress/components": "^21.0.0",
-		"@wordpress/env": "^5.2.0",
-		"@wordpress/prettier-config": "^2.0.0",
-		"@wordpress/scripts": "^24.1.0",
-		"@wordpress/server-side-render": "^3.15.0",
-		"prettier": "^2.7.1",
+		"@wordpress/block-editor": "^12.15.0",
+		"@wordpress/blocks": "^12.24.0",
+		"@wordpress/components": "^25.13.0",
+		"@wordpress/env": "^8.13.0",
+		"@wordpress/prettier-config": "^3.4.0",
+		"@wordpress/scripts": "^26.18.0",
+		"@wordpress/server-side-render": "^4.24.0",
+		"prettier": "^3.1.0",
 		"react": "^18.2.0"
 	},
 	"prettier": "@wordpress/prettier-config",
