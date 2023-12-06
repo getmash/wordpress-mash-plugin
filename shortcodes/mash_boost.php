@@ -46,6 +46,7 @@ function mash_boost_button_shortcode( $atts = array(), $content = null, $tag = '
   return $output;
 }
 
-add_shortcode('mash_boost', 'mash_boost_button_shortcode');
+// Hide shortcode. Deprecated and no longer being used.
+// add_shortcode('mash_boost', 'mash_boost_button_shortcode');
 // Include deprecated plural version
-add_shortcode('mash_boosts', 'mash_boost_button_shortcode');
+// add_shortcode('mash_boosts', 'mash_boost_button_shortcode');

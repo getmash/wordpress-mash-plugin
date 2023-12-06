@@ -1,7 +1,7 @@
 .dashicons-mash {
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 42px auto;
+  background-size: 24px auto;
   background-image: url("../images/mash-logo.svg");
 }
 
@@ -55,6 +55,9 @@
 .mash-content {
   background-color: #FBF8FB;
   padding: 24px 32px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .mash-card {
@@ -104,7 +107,7 @@
 
 .mash-button.cta:active {
   background-color: #DD87DA;
-  color: #FFBAFC";
+  color: #FFBAFC;
 }
 
 .mash-button.save-button {
@@ -220,7 +223,7 @@
   background-color: #EDE4F2;
   margin: 0 40px;
   width: 1px;
-  height: auto;
+  height: 16px;
 }
 
 .connect-mash-left {
@@ -313,6 +316,7 @@
 
 .contact-links {
   display: flex;
+  align-items: center;
 }
 
 .help-link {
@@ -328,4 +332,13 @@
 .help-link:hover,
 .resource-link:hover {
   color: #404040;
+}
+
+.list {
+  list-style: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
 }

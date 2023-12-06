@@ -46,7 +46,8 @@ function mash_paywall_shortcode( $atts = array(), $content = null, $tag = '' ) {
   return $output;
 }
 
-add_shortcode('mash_content_revealer', 'mash_paywall_shortcode');
+// Hide shortcode. Deprecated and no longer being used.
+// add_shortcode('mash_content_revealer', 'mash_paywall_shortcode');
 
 // Include deprecated version
-add_shortcode('mash_paywall', 'mash_paywall_shortcode');
+// add_shortcode('mash_paywall', 'mash_paywall_shortcode');

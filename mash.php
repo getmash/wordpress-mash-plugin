@@ -2,10 +2,10 @@
 /**
 * Plugin Name: Mash - Monetize, Earn, and Grow your Experiences w/ Bitcoin Lightning
 * Plugin URI: https://github.com/getmash/wordpress-mash-plugin
-* Description: Setup and configure a Mash Wallet on your wordpress site. Earn more in an entirely new and interactive way!
-* Version: 2.1.2
+* Description: Easily setup and configure Mash’s tools for publishers & creators on your WordPress site easily.
+* Version: 2.2.0
 * Author: Mash
-* Author URI: https://www.getmash.com/
+* Author URI: https://www.mash.com/
 **/
 
 /**
@@ -13,38 +13,6 @@
  */
 if (!defined('WPINC')) {
   die;
-}
-
-/**
- * Load blocks
- */
-require_once plugin_dir_path( __FILE__ ) . 'build/boost/index.php';
-require_once plugin_dir_path( __FILE__ ) . 'build/paywall/index.php';
-
-/**
- * Load shortcodes
- * 
- */
-foreach ( glob( plugin_dir_path( __FILE__ ) . "shortcodes/*.php" ) as $file ) {
-  require_once $file;
-}
-
-/**
- * Configure Custom Gutenberg Block category
- */
-
-function register_mash_block_category( $categories ) {
-  $categories[] = array(
-    'slug' => 'mash-blocks',
-    'title' => 'Mash'
-  );
-  return $categories;
-}
-
-if ( version_compare( get_bloginfo( 'version' ), '5.8', '>=' ) ) {
-  add_filter( 'block_categories_all', 'register_mash_block_category');
-} else {
-  add_filter( 'block_categories', 'register_mash_block_category');
 }
 
 /**
@@ -276,19 +244,13 @@ if (!class_exists("MASH_PLUGIN")) :
       $output = '
       <script>
         window.MashSettings = {
-          id: "' . esc_html($earner_id) . '"
+          earnerID: "' . esc_html($earner_id) . '"
         };
-        var loader = function () {
+        var onMashScriptLoaded = function () {
           window.Mash.init();
         };
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.defer = true;
-        script.onload = loader;
-        script.src = "https://wallet.getmash.com/sdk/sdk.js";
-        var head = document.getElementsByTagName("head")[0];
-        head.appendChild(script);
       </script>
+      <script defer src="https://cdn.mash.com/mash/mash.js" onload="onMashScriptLoaded();"></script>
       ' . "<!--" . is_home() . "-->";
       return $output;
     }

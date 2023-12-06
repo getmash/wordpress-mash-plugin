@@ -3,64 +3,61 @@
 Contributors: getmash
 Tags: bitcoin, lightning, creators, mash, monetize, revenue, interaction, writers, bloggers, payments, developers, earn 
 Requires at least: 6.0.0
-Tested up to: 6.0.2
-Stable tag: 2.1.2
+Tested up to: 6.4.2
+Stable tag: 2.2.0
 Requires PHP: 7.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
   
-Setup and configure Mash's Creator Monetization tools on your WordPress site. Earn more, learn what your customers love in a new and and interactive way!
-  
-== Overview of Creator Monetization Tools ==
-  
-[Mash](https://getmash.com) makes it easy to earn more for your quality experiences. It’s the fastest & easiest way for your users to donate & pay for your content – at any price, large or small. It works for articles, instant-one-click-donations, video content, downloading files and more.
+This plugin lets you easily setup and configure Mash’s tools for publishers & creators on your WordPress site easily. Alternatively, you can add a small JavaScript code-snippet to your site as outlined in the setup flow in your Mash organization account.
 
-**Boosts**, let your fans one-click-donate and say “thanks” at the same time. Each tap is a $0.05 contribution, and you get to learn what they love most – without them having to type in a credit card in every-time. 
+== OVERVIEW OF CREATOR MONETIZATION & ENGAGEMENT TOOLS ==
 
-**Content Monetization Widgets** allow you to earn more in new and interactive ways – no large purchase commitment barriers. You set pricing and they pay-as-they-enjoy to access an article, watch a great video, and even to get secret details like your email. You can have your users support you automatically, or with one-click for your amazing experiences. 
+[Mash](https://mash.com/) augments your site by letting your users donate to you, pay you for premium content access, interact with your content with stickers, emojis, gifs and other multiplayer experiences. You can also reward users with Bitcoin as they engage with your content to grow your site. 
 
-**Mash Wallet** enables your users have access to their money to use on your site, across the internet, and to send where they want.
+You’ll increase your audiences engagement, grow your audience, and add new revenue streams – all without requiring any developers or major changes to your site. 
 
-With Mash, you’re adding payments built for creators – earning while building relationships with more of your fans, in an entirely new and interactive way! We’re here to help you unlock better business models that you and your users will love.
+**Mash Hub** – **a small widget to augment your site and engage users**
+
+Mash appears as a floating panel on the left side of your site that your users can interact with, and for you to prompt them to take action. They can donate easily, vote on experiences, support you with crowdfunding campaigns, and control their experience. They can also easily access their Mash wallet to support you with a click – without entering a credit card every time – or use another wallet like CashApp, even without ever signing up for a Mash account.
+
+**Donations – memes, for specifics causes, or food & beverage support**
+
+Request donations with spicy memes, for a specific cause that you care about, an item that you want to them to help you purchase, or to buy you a steak & coffee. Unlike other donations that require inputting a credit anytime and a large minimum, users can donate any amount, with one click – paying with Mash or any lightning wallet like CashApp. Mash also optimizes how frequently users are asked to donate based on how they engage with your site. 
+
+**Page Revealers – charge any amount for access to premium content**
+
+Charge your users any-amount – even $0.01 or 1 sat – for access to individual premium content on your site. Unlike subscriptions, that require a large purchase commitments and inputting a credit card – your users can easily pay you with one click without other friction. You’ll convert more users and earn more. People are using Page Revealers for articles, blog posts, downloads, reviews, and videos. 
+
+**Reactions – let users add emojis, stickers, memes and gifs to your content**
+
+Augment your ****site by providing a way for your users to add emojis, stickers, and animations to your content that your entire audience can see and engage with. Your audience will spend more time on-site, explore more content, and you’ll earn direct revenue when they purchase premium reactions to support you and share what they love most. 
+
+**Rewards – provide Bitcoin rewards to users and grow your audience**
+
+Provide Bitcoin rewards to your audience automatically as they watch videos, read content, complete a quiz, or explore your site. You can do this as part of “treasure hunt” style giveaway campaigns and other marketing efforts to drive traffic, site discovery and exploration. Because you can reward lots of users globally with small amounts of Bitcoin, unlike other reward campaigns that usually only have one large winner, you’ll gain more support, grow page views and your audience faster, without any operational overhead. 
+
+**Mash solutions for everywhere your audience is**
+
+You can also augment your social media, newsletter, link-in bio and and other places that your audience visits with Lightning Addresses & QR codes for Donations and Paid Voting & Crowdfunding Campaigns.
+
+= INTEROPERABLE PAYMENTS =
+
+Mash is powered by Bitcoin and the Lightning Network because they’re open, decentralized, and interoperable. Anyone around the world can use Mash, for any amount – even a fraction of a penny – at immaterial cost.
+
+Users can contribute with their Mash Wallet or any other lightning enabled wallet such as CashApp, Strike, or Kraken. Your users aren’t trapped into one platform or even creating an account with Mash, like they are with products like PayPal & Venmo. And there are no minimums for you to send your earnings, or your users to send funds, to another wallet.
 
 == Getting Started ==
 
-= Set up your account =
+Visit the [Earn with Mash Web App](https://app.mash.com/earn/) to create your account and setup Mash. It should only take two minutes. You’ll get instructions for installing the Mash Wordpress plugin, connecting your account and all Mash products & solutions outlined above.
 
-Visit the [Earn with Mash Web App](https://wallet.getmash.com/earn) and set up an account, it should only take two minutes. Get your “Earner ID” from the settings tab on the left side. You’ll use it to configure the Mash plug-in to start earning for content and getting single-click donations.
+== EARLY ACCESS TO NEW SOLUTIONS ==
 
-= Add Mash Wallet =
-
-Use the Mash Wordpress Plugin directly to add the Mash wallet to your site. Use the Mash Platform to configure how and where you want Mash to appear on your site.
-
-= Add Floating Boosts to your site or specific pages =
-Use the Wordpress plugin to add the Mash wallet to the pages and posts of your choosing. Once your "Earner ID" is configured in the plugin, navigate to [Boosts](https://wallet.getmash.com/earn/boosts) in the Mash Platform and configure how and where you want Boosts to show up on your site.
-
-= Add Page Revealer to your site or specific pages =
-Use the Wordpress plugin to add the Mash wallet to the pages and posts of your choosing. Once your "Earner ID" is configured in the plugin, navigate to [Page Revealers](https://wallet.getmash.com/earn/page-revealers) in the Mash Platform and configure how and where you want a Page Revealer to show up on your site. The Page Revealer allows you request payment to access a piece of content on your site.
-
-= Embedded HTML Block Capabilities =
-You can monetize anything using embedded HTML. More will be available with Blocks and short-codes. Reach out if you want to be a beta tester. Find out more at [Mash](https://getmash.com), [Guides](https://guides.getmash.com) + [Storybook](https://docs.getmash.com) for overviews and design canvases.
-
-* Articles & Blog Posts – From a review of your favourite products, to a how-to guide or recipe. Hide some content in a section or an entire post.
-* Downloads – Share high-quality assets for a fee. For cheat sheets, mods, image assets, filter packs and more.
-* Videos – For premium deep-dives, behind the scenes content and more
-* Links – Have a great resource to share but want users to contribute a small bit ask users to contribute for premium links to resources.
-* Donate Buttons – Let them say thanks, but a bit more than the boost.
-* Donations and support from everywhere online. Share your lightning address, lightning QR code and Mash Page with your users to support you directly from all your channels, including LinkTree, withKoji, Twitter, Reddit, Instagram, Facebook, Stackoverflow, Github… you name it!
-
-= Shortcodes = 
-
-* [mash_boost] - Loads the Mash Boost button for one-click donations. You can adjust the designs, floating locations and more. Here's a guide for currently available properties and how to adjust the(https://guides.getmash.com/wordpress-add-boosts) & [here's a design storybook canvas](https://docs.getmash.com/?path=/docs/donations-boost-button--boost-button).
-* [mash_paywall] - Wraps content in a Mash-powered paywall.
-
-= Adding more monetization =
-
-With the consumer wallet, it also allows you to charge your users, and get paid for your amazing content with Mash’s monetization widgets – you can give freebies, and have different prices/tiers for each. Currently, you can add them easily with [Custom HTML blocks](https://wordpress.com/support/wordpress-editor/blocks/custom-html-block/). And the [Mash Guides](https://guides.getmash.com) + [Storybook](https://docs.getmash.com) documents have general overviews.
-
+We’re actively building lots of new solutions & products that might not be listed here. You can learn more, express interest in being an early partner to get early access, or be notified when it is broadly released by [joining the waitlist](https://tally.so/r/wbjvLZ).
+  
 == Installation ==
 
-1. Install the plugin through your main Wordpress Dashboard at wp-admin/plugin-install.php. There are [detailed instructions available for Wordpress at](https://guides.getmash.com/wordpress-add-consumer-wallet).
+1. Install the plugin through your main WordPress Dashboard normally available at https://YOURSITE/wp-admin/plugin-install.php. You can find detailed instructions in the [Earn with Mash App](https://app.mash.com/earn/hub/install-instructions).
 
 OR
 
@@ -68,7 +65,9 @@ OR
 2. Upload the plugin folder to your /wp-content/plugins/ folder.
 3. Go to the **Plugins** page and activate the plugin.
 
-Once the plugin is installed, make sure you have a Mash Earner account. This account can be created here: https://wallet.getmash.com/earn
+**Configure & Setup Mash for Your Site**
+
+Make sure you have an account to Earn with Mash to connect to your site and setup the experience. This account can be created here: https://app.mash.com/earn
 
 == Frequently Asked Questions ==
   
@@ -82,12 +81,18 @@ Simply deactivate and delete the plugin.
   
 == Screenshots ==
 
-1. Mash Boosts
-2. Mash Written Content
-3. Mash Video Content
-4. Mash Wallet
+1. Mash 
+2. Donations
+3. Reactions
+4. Community Events
+5. Reward Campaigns
   
 == Changelog ==
+
+= 2.2.0 =
+* MODIFIED: Updated new Mash snippet
+* MODIFIED: Updated Mash assets
+* REMOVED: Shortcodes and inline components
 
 = 2.1.2 =
 * MODIFIED: Updated Mash logo to latest
