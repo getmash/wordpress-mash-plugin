@@ -1,8 +1,8 @@
 <?php
 /**
-* Plugin Name: Mash - Drive engagement and better monetize your content
+* Plugin Name: Mash - Monetize, Earn, and Grow your Experiences w/ Bitcoin Lightning
 * Plugin URI: https://github.com/getmash/wordpress-mash-plugin
-* Description: Start earning today with on-site donations, community monetization and more!
+* Description: Easily setup and configure Mash’s tools for publishers & creators on your WordPress site easily.
 * Version: 2.2.0
 * Author: Mash
 * Author URI: https://www.mash.com/
