@@ -21,9 +21,8 @@ repo_name := "mash-monetize-earn-and-grow-your-experiences-w-bitcoin-lightning"
 version := ""
 # build plugin zip file and create release
 @build:
-  yarn build
   mkdir ./releases/v{{version}}
-  zip -R ./releases/v{{version}}/mash-wordpress-plugin-{{version}}.zip "assets/*" "css/*" "images/*" "includes/*" "js/*" "shortcodes/*" "build/**/*" "LICENSE" "readme.txt" "mash.php" "uninstall.php" -x "node_modules/*" -x ".DS_Store"
+  zip -R ./releases/v{{version}}/mash-wordpress-plugin-{{version}}.zip "assets/*" "css/*" "images/*" "includes/*" "js/*" "LICENSE" "readme.txt" "mash.php" "uninstall.php" -x "node_modules/*" -x ".DS_Store"
 
 
 

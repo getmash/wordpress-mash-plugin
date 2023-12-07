@@ -4,7 +4,7 @@ Contributors: getmash
 Tags: bitcoin, lightning, creators, mash, monetize, revenue, interaction, writers, bloggers, payments, developers, earn 
 Requires at least: 6.0.0
 Tested up to: 6.4.2
-Stable tag: 2.2.0
+Stable tag: 2.2.1
 Requires PHP: 7.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -31,7 +31,7 @@ Charge your users any-amount – even $0.01 or 1 sat – for access to individua
 
 **Reactions – let users add emojis, stickers, memes and gifs to your content**
 
-Augment your ****site by providing a way for your users to add emojis, stickers, and animations to your content that your entire audience can see and engage with. Your audience will spend more time on-site, explore more content, and you’ll earn direct revenue when they purchase premium reactions to support you and share what they love most. 
+Augment your site by providing a way for your users to add emojis, stickers, and animations to your content that your entire audience can see and engage with. Your audience will spend more time on-site, explore more content, and you’ll earn direct revenue when they purchase premium reactions to support you and share what they love most. 
 
 **Rewards – provide Bitcoin rewards to users and grow your audience**
 
@@ -88,6 +88,10 @@ Simply deactivate and delete the plugin.
 5. Reward Campaigns
   
 == Changelog ==
+
+= 2.2.1 =
+* MODIFIED: Fix readme text
+* REMOVED: Gutenburg Blocks
 
 = 2.2.0 =
 * MODIFIED: Updated new Mash snippet
