@@ -14,9 +14,6 @@ repo_name := "mash-monetize-earn-and-grow-your-experiences-w-bitcoin-lightning"
   rm -rf {{svn_dir}}/{{repo_name}}/trunk/includes && cp -R ./includes/ {{svn_dir}}/{{repo_name}}/trunk/includes
   rm -rf {{svn_dir}}/{{repo_name}}/trunk/images && cp -R ./images/ {{svn_dir}}/{{repo_name}}/trunk/images
   rm -rf {{svn_dir}}/{{repo_name}}/trunk/css && cp -R ./css/ {{svn_dir}}/{{repo_name}}/trunk/css
-  rm -rf {{svn_dir}}/{{repo_name}}/trunk/build && cp -R ./build/ {{svn_dir}}/{{repo_name}}/trunk/build
-  rm -rf {{svn_dir}}/{{repo_name}}/trunk/shortcodes && cp -R ./shortcodes/ {{svn_dir}}/{{repo_name}}/trunk/shortcodes
-  
   
 version := ""
 # build plugin zip file and create release
